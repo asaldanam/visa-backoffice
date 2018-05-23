@@ -1,0 +1,45 @@
+//Grid mixins
+@mixin grid($gr-row, $gr-column)
+  display: grid
+  grid-template-rows: repeat($gr-row, 1fr)
+  grid-template-columns: repeat($gr-column, 1fr)
+  grid-gap: $gap
+
+@mixin grid-span($gs-row, $gs-column, $gs-size)
+  @media (min-width: $gs-size)
+    grid-row: span $gs-row
+    grid-column: span $gs-column
+
+//Flex mixins
+@mixin flex($fl-hor, $fl-ver, $fl-dir)
+  display: flex
+  justify-content: $fl-hor
+  align-items: $fl-ver
+  flex-direction: $fl-dir
+
+//12-column layout
+@mixin grid-12
+  display: grid
+  grid-template-columns: repeat(12, 1fr)
+  grid-gap: $gap
+
+@mixin col-1 ($size)
+  @media (min-width: $size)
+    grid-column: span 1
+
+@mixin col-3 ($size)
+  @media (min-width: $size)
+    grid-column: span 3
+
+@mixin col-4 ($size)
+  @media (min-width: $size)
+    grid-column: span 4
+  grid-column: span 12
+
+@mixin col-6 ($size)
+  @media (min-width: $size)
+    grid-column: span 6
+
+@mixin col-12 ($size)
+  @media (min-width: $size)
+    grid-column: span 12

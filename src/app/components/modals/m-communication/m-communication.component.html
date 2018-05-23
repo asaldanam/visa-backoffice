@@ -1,0 +1,56 @@
+<div *ngIf="visible" class="l-modal-container">
+  
+  <div class="l-modalaside-box asidemodal-box" [ngClass]="{'show': visible }">
+
+    <header class="l-modalaside-bar asidemodal-header">
+      <div class="modal-title">Mensaje</div>
+      <button class="btn-icon btn-alt" (click)="close()">
+        <i class="material-icons">close</i>
+      </button>
+    </header>
+
+    <div class="l-modalaside-body modal-body hidden-scroll">
+
+      <div class="row">
+        <div class="form-group col-12">
+          <label class="exp-label is-header">Autor</label>
+          <div>
+            John Doe
+          </div>
+        </div>
+        <div class="form-group col-12">
+          <label class="exp-label is-header">Mensaje</label>
+          <div>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eaque, id. Molestias, quisquam doloremque eos iure error odit quam saepe, dolor, perspiciatis illo praesentium fugit voluptatem accusamus quaerat laudantium unde voluptates? Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia quasi qui eius voluptas aliquid enim nam, fugit perferendis sapiente officiis accusantium illo. Temporibus ullam possimus ipsa voluptas, sed neque quod.
+          </div>
+        </div>
+        <div class="form-group col-12">
+          <label class="exp-label is-header">Archivo adjunto</label>
+          <div class="mb-1">
+            pasaporte-john-doe.pdf
+          </div>
+          <button class="btn" [ngClass]="_agencyConfig.userFrom + '-button-light-color'" routerLink="/new-order">
+            <i class="material-icons">file_download</i>
+            <span class="btn-text">Descargar archivo</span>
+          </button>
+        </div>
+      </div>
+
+    </div>
+
+    <footer class="l-modalaside-bar">
+      <div class="l-btn-container-right">
+        <button class="btn btn-alt-border" (click)="close()">
+          <!-- <i class="material-icons">save</i> -->
+          <span>Cancelar</span>
+        </button>
+        <!-- <button class="btn" (click)="close()" [ngClass]="_agencyConfig.userFrom + '-button-light-color'" >
+          <span>Aplicar</span>
+        </button> -->
+      </div>
+    </footer>
+
+  </div>
+  <div class="l-areaback" *ngIf="visible" (click)="close()"></div>
+</div>
+

@@ -1,0 +1,44 @@
+@keyframes blurr-on
+  0%
+    filter: blur(0px)
+  100%
+    filter: blur(7px)
+
+@keyframes blurr-off
+  0%
+    filter: blur(7px)
+  100%
+    filter: blur(0px)
+
+@keyframes fade-in
+  0%
+    opacity: 0
+  100%
+    opacity: 1
+
+@keyframes fade-out
+  0%
+    opacity: 1
+    display: inherit
+  100%
+    opacity: 0
+    display: none
+
+@keyframes pulse
+  0%
+    opacity: 0
+  33%
+    opacity: 1
+  66%
+    opacity: 0
+  100%
+    opacity: 1
+
+@keyframes aside-modal
+  0%
+    transform: translateX(480px)
+  100%
+    transform: translateX(0)
+
+.loaded
+  animation: fade-in 300ms linear

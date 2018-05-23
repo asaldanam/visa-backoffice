@@ -1,0 +1,64 @@
+@import "../bootstrap/bootstrap_forms"
+
+//BASE
+
+.form-group
+
+  &.has-icon
+    position: relative
+
+    .custom-input, .custom-select
+      padding-left: 2em
+    
+    i.material-icons.form-icon
+      position: absolute
+      bottom: 0.45em
+      left: 1.1em
+      color: transparentize($grey-font-light, 0.5)
+      font-size: 20px
+
+input[type="file"]
+  cursor: pointer
+
+
+input, textarea, select
+
+
+label.exp-label
+  font-size: 11px
+  text-transform: uppercase
+  font-weight: 600
+  margin-bottom: 2px
+  display: block
+
+  &.is-header
+    background-color: $grey-bg
+    color: $grey-font-light
+    padding: 4px 6px
+    position: relative
+    font-size: 13px
+    margin-bottom: 5px
+
+textarea.custom-textarea
+  resize: vertical
+  min-height: 90px
+  max-height: 30vh
+
+//Date select
+.custom-day
+  display: inline-block
+  width: calc(22% - 5px)
+.custom-month
+  display: inline-block
+  width: 50%
+.custom-year
+  display: inline-block
+  width: calc(28% - 5px)
+
+
+//checkboxes
+.form-check-input
+  margin-top: 0.05em
+
+.form-check-label
+  cursor: pointer

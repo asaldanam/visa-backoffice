@@ -1,0 +1,258 @@
+.exp-table
+  font-size: 0.875em
+  @media (max-width: $md)
+    font-size: 12px
+  
+.exp-table-row
+  @include flex(flex-start, center, row)
+  background-color: white
+  height: 38px
+  border-radius: 3px
+  margin-bottom: 5px
+  
+.exp-table-header
+  @include flex(flex-start, center, row)
+  // background-color: white
+  // height: 38px
+  // border-radius: 3px
+  color: $grey-font-light
+  margin-bottom: 5px
+  font-size: 0.750em
+  text-transform: uppercase
+  font-weight: 700
+  padding-top: 15px
+
+.exp-table-cell
+  @include flex(flex-start, center, row)
+  box-sizing: border-box
+  padding-left: 10px
+  padding-right: 10px
+  width: 100%
+
+  i.material-icons
+    color: darken($grey-light, 15%)
+    cursor: pointer
+    transition: $linear-short
+    transition-duration: 150ms
+    &:hover
+      color: $grey-font
+
+  &.right
+    @include flex(flex-end, center, row)
+
+.exp-table-more
+  margin-top: 0.75em
+  margin-bottom: 2em
+  width: 100%
+  height: 50px
+  font-size: 1.15em
+  background-color: $grey-light
+  color: darken($grey-light, 25%)
+
+
+//Contents
+.exp-table-flag
+  width: 20px
+  height: 20px
+  margin-right: 0.25em
+
+.exp-table-hour
+  color: lighten($grey-font-light, 10%)
+
+.exp-table-text
+  text-overflow: ellipsis
+  overflow-x: hidden
+  white-space: nowrap
+  width: 100%
+
+.exp-table-status
+
+  &.valid
+    i.material-icons
+      color: $color-valid
+  &.error
+    i.material-icons
+      color: $color-error
+  &.warning
+    i.material-icons
+      color: $color-warning
+
+  i.material-icons
+    font-size: 0.875em
+    position: relative
+    top: 0.10em
+    margin-right: 0.15em
+
+    &:hover
+      color: $grey-font
+
+//sorting
+.exp-table-title
+  position: relative
+  cursor: pointer
+  user-select: none
+  transition: $linear-short
+
+  &.active
+    color: black
+  
+  &.down
+    &::after
+      @include material-icons
+      content: 'arrow_drop_down'
+      font-size: 1.5em
+      position: absolute
+      top: -0.05em
+      right: -0.80em
+  
+  &.up
+    &::after
+      @include material-icons
+      content: 'arrow_drop_up'
+      font-size: 1.5em
+      position: absolute
+      top: -0.05em
+      right: -0.80em
+
+
+//actions
+.exp-table-actions-items
+  display: none
+
+.exp-table-actions
+  position: relative
+  @include flex(flex-end, center, row)  
+  width: 100%
+  height: 100%
+
+  i.material-icons
+    &:hover
+      color: darken($grey-light, 15%)
+
+  &:hover
+    .exp-table-actions-items
+      animation: fade-in 150ms linear
+      @include flex(flex-end, center, row)
+      position: absolute
+      right: 4px
+      background-color: white
+      width: 100%
+      height: 100%
+      opacity: 1
+
+
+  i.material-icons
+    transition: $linear-short
+    transition-duration: 150ms
+    margin-right: 4px
+    font-size: 22px
+
+    &:hover
+      color: $grey-font
+
+    &:last-child
+      margin-right: 0px
+
+
+//breakdown table
+table.breakdown-table
+  width: 100%
+  
+  thead
+    tr
+      background-color: $grey-light
+      th
+        font-size: 10px
+        color: $grey-font-light
+        text-transform: uppercase
+        font-weight: 700
+        padding: 4px 3px
+        text-align: right
+  
+  tbody
+    tr
+      th, td
+        font-size: 14px
+        padding: 4px 3px
+
+      th
+        text-align: left
+      
+      td
+        color: $grey-font
+        text-align: right
+
+      th.breakdown-header
+        border-bottom: 1px solid $grey-light
+        text-transform: uppercase
+        font-size: 10px
+        font-weight: 700
+        padding: 4px 3px
+        padding-top: 12px
+        
+.breakdown-boxes
+  @include flex(space-between, center, row)
+  padding-top: 1em
+
+.breakdown-item
+  @include flex(center, center, column)
+  width: 100%
+  margin-right: 10px
+  height: 50px
+  
+  &:last-child
+    border-radius: 3px
+    margin-right: 0
+
+  &.is-alt
+    background-color: $grey-light
+    color: $grey-font-light
+
+  &.is-total
+    color: white
+
+.breakdown-title
+  font-size: 10px
+  margin-bottom: 3px
+  text-transform: uppercase
+  font-weight: 700
+
+.breakdown-price
+  font-size: 18px
+
+.breakdown-container
+  max-width: $md
+  margin: 0 auto
+  padding: 1.5em 0
+
+//info tables
+.info-table
+  border: 1px solid darken($grey-light, 5%)
+  border-radius: 3px
+  overflow: hidden
+  width: 100%
+
+  tbody
+    tr
+      
+      th, td
+        padding: 8px 12px
+        font-size: 14px
+        text-align: left
+        border-bottom: 1px solid darken($grey-light, 5%)
+      
+      th
+        background-color: $grey-bg
+        color: $grey-font-light
+        font-weight: 500
+        border-right: 1px solid darken($grey-light, 5%)
+      
+      td
+        background-color: white
+    
+    tr:last-child
+      th, td
+        border-bottom: none
+
+
+    

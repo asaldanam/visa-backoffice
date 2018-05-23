@@ -1,0 +1,243 @@
+<div class="navigation-container">
+  <nav class="l-navigation">
+    <div class="l-navigation-box navigation-box">
+      <app-navigation></app-navigation>
+      
+      <div class="l-btncontainer l-navigation-buttons">
+        <button class="btn btn-alt" (click)="_location.goBack()">
+          <i class="material-icons">arrow_back</i>
+          <span class="btn-text">Volver</span>
+        </button>
+        <button class="btn" routerLink="/order-detail" [ngClass]="_agencyConfig.userFrom + '-button-light-color'" >
+          <i class="material-icons">remove_red_eye</i>
+          <span class="btn-text">Ver pedido</span>
+        </button>
+      </div>
+    </div>
+  </nav>
+</div>
+
+<header class="l-main l-header">
+
+  <div class="header-status">
+    <span class="exp-table-status warning">
+        <i class="material-icons">brightness_1</i>
+    </span>
+    <span class="exp-table-text">Esperando documentación</span>
+  </div>
+
+  <!-- <div class="price" (click)="_modals.openModal('breakdown')">
+    <span class="price-text cursor-pointer" [ngClass]="['nav-menu', _agencyConfig.userFrom + '-font-light-color']">
+      127.35€
+    </span>
+    <i class="material-icons price-icon">remove_red_eye</i>
+  </div> -->
+
+</header>
+
+<main class="l-main">
+  
+  <!-- Info -->
+  <section class="row">
+
+    <div class="col-md-4">
+        <div class="title-1 has-noborder">
+            Datos del pedido 
+        </div>
+        <table class="info-table">
+          <tbody>
+            <tr>
+              <th>Sexo</th>
+              <td>Hombre</td>
+            </tr>
+            <tr>
+              <th>Nombre</th>
+              <td>John</td>
+            </tr>
+            <tr>
+              <th>Apellidos</th>
+              <td>Dow</td>
+            </tr>
+            <tr>
+              <th>Fecha de nacimiento</th>
+              <td>12 Agosto 1980</td>
+            </tr>
+            <tr>
+              <th>País de nacimiento</th>
+              <td>Estados Unidos</td>
+            </tr>
+            <tr>
+              <th>Núm. Pasaporte</th>
+              <td>12344565567690</td>
+            </tr>
+            <tr>
+              <th>Fecha de expiración</th>
+              <td>12 Agosto 1980</td>
+            </tr>
+            <tr>
+              <th>Fecha de partida</th>
+              <td>1 Feb 2018</td>
+            </tr>
+            <tr>
+              <th>Fecha de entrada</th>
+              <td>2 Feb 2018</td>
+            </tr>
+            <tr>
+              <th>Fecha de regreso</th>
+              <td>15 Feb 2018</td>
+            </tr>
+          </tbody>
+        </table>
+    </div>
+
+    <div class="col-md-4">
+      <div class="title-1 has-noborder">
+          Datos del pedido 
+      </div>
+      <table class="info-table">
+        <tbody>
+          <tr>
+            <th>Origen</th>
+            <td>España</td>
+          </tr>
+          <tr>
+            <th>Destino</th>
+            <td>Estados Unidos</td>
+          </tr>
+          <tr>
+            <th>Tipo de visado</th>
+            <td>Turismo</td>
+          </tr>
+          <tr>
+            <th>Duración</th>
+            <td>90 Días</td>
+          </tr>
+          <tr>
+            <th>Tipo de trámite</th>
+            <td>Ordinario</td>
+          </tr>
+          <tr>
+            <th>Nº de entradas</th>
+            <td>Múltiples entradas</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="col-md-4">
+      <div class="title-1 has-noborder">
+          Servicios adicionales 
+      </div>
+      <table class="info-table">
+          <tbody>
+            <tr>
+              <th>Seguro de viaje</th>
+              <td>Hasta 30 días</td>
+            </tr>
+            <tr>
+              <th>Entrega</th>
+              <td>Mensajería urgente</td>
+            </tr>
+            <tr>
+              <th>Imp. fotográfica</th>
+              <td>Sí</td>
+            </tr>
+            <tr>
+              <th>Rec. domicilio</th>
+              <td>No</td>
+            </tr>
+          </tbody>
+        </table>
+    </div>
+
+  </section>
+
+
+  <!-- Requirements & attached files -->
+  <section class="row">
+      <div class="col-md-8">
+        <div class="title-1">Requisitos</div>
+        <ul class="requirements-list">
+            <li class="requirements-item">
+              <header class="requirements-header">
+                <i class="material-icons requirements-icon">insert_drive_file</i>
+                <span class="requirements-title">Permiso de residencia y empadronamiento	</span>
+              </header>
+              <div class="requirements-body">En caso de que el viajero no tenga nacionalidad española deberá aportar: Fotocopia del permiso de residencia o NIE y Certificado de empadronamiento emitido por el municipio donde reside el viajero.</div>
+            </li>
+            <li class="requirements-item">
+              <header class="requirements-header">
+                <i class="material-icons requirements-icon">insert_drive_file</i>
+                <span class="requirements-title">Formulario ETA electrónico</span>
+              </header>
+              <div class="requirements-body">Deberá rellenar el formulario que le haremos llegar una vez finalice su solicitud.</div>
+            </li>
+          </ul>
+      </div>
+      <div class="col-md-4">
+        <div class="title-1">Archivos adjuntos</div>
+
+        <div class="row">
+          <div class="form-group col-sm-12">
+              <label class="exp-label">Adjuntar archivos</label>
+              <div class="custom-file ">
+                <input type="file" class="custom-file-input" lang="es">
+                <span class="custom-file-label" for="customFileLang">Seleccionar Archivo</span>
+              </div>
+          </div>
+          <div class="col-sm-12">
+            <ul class="attached-files ">
+              <li class="attached-files-item">
+                <span class="attached-files-text">archivo_primero.jpg</span>
+              </li>
+              <li class="attached-files-item">
+                <span class="attached-files-text">archivo_segundo.jpg</span>
+              </li>
+              <li class="attached-files-item">
+                <span class="attached-files-text">archivo_tercero.jpg</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+  </section>
+
+ 
+  <!-- communications -->
+  <app-communications></app-communications>
+
+
+  <footer class="l-footer footer">
+
+    <!-- <div class="price" (click)="_modals.openModal('breakdown')">
+      <span class="price-text cursor-pointer" [ngClass]="['nav-menu', _agencyConfig.userFrom + '-font-light-color']">
+        127.35€
+      </span>
+      <i class="material-icons price-icon">remove_red_eye</i>
+    </div> -->
+
+    <div class="l-btncontainer" style="margin-left: auto">
+      <button class="btn btn-alt" (click)="_location.goBack()">
+        <i class="material-icons">arrow_back</i>
+        <span class="btn-text">Volver</span>
+      </button>
+      <button class="btn" routerLink="/order-detail" [ngClass]="_agencyConfig.userFrom + '-button-light-color'" >
+        <i class="material-icons">remove_red_eye</i>
+        <span class="btn-text">Ver pedido</span>
+      </button>
+    </div>
+  
+  </footer>
+    
+
+</main>
+
+<!-- breakdown -->
+<app-m-breakdown [(visible)]="_modals.setDialogBreakdown"></app-m-breakdown>
+
+<!-- visa -->
+<app-m-visa-edit [(visible)]="_modals.setDialogVisa"></app-m-visa-edit>
+
+<!-- communication -->
+<app-m-communication [(visible)]="_modals.setDialogCommunication"></app-m-communication>

@@ -1,0 +1,238 @@
+<div class="navigation-container">
+  <nav class="l-navigation">
+    <div class="l-navigation-box navigation-box">
+      <app-navigation></app-navigation>
+      <div class="l-btncontainer l-navigation-buttons">
+        <button class="btn btn-alt" (click)="_location.goBack()">
+            <i class="material-icons">arrow_back</i>
+            <span class="btn-text">Volver</span>
+        </button>
+      </div>
+    </div>
+  </nav>
+</div>
+
+<form class="l-main">
+
+  <div class="row">
+    <div class="col-md-4">
+
+      <!-- user settings -->
+      <section>
+        <div class="title-1">Ajustes de usuario</div>
+
+        <!-- Email -->
+        <div class="form-group">
+          <label class="exp-label">Correo Electrónico</label>
+          <input type="email" class="form-control custom-input" placeholder="example@example.com" required>
+        </div>
+
+        <!-- Name -->
+        <div class="form-group">
+          <label class="exp-label">Nombre</label>
+          <input type="email" class="form-control custom-input" required>
+        </div>
+
+        <!-- Agencia -->
+        <div class="form-group">
+          <label class="exp-label">Agencia</label>
+          <input disabled type="email" class="form-control custom-input" value="Agencia turismo" required>
+          <small class="form-text text-muted">Contacte con el equipo de Expediatur para modificar este campo.</small>
+        </div>
+
+        <!-- language -->
+        <div class="form-group">
+          <label class="exp-label">IDIOMA</label>
+          <select class="form-control custom-select" required>
+            <option selected >Español</option>
+            <option>Inglés</option>
+          </select>
+        </div>
+
+      </section>
+
+      <!-- password change -->
+      <section>
+        <div class="title-1">Cambiar contraseña</div>
+
+        <!-- password -->
+        <div class="form-group">
+          <label class="exp-label">Contraseña actual</label>
+          <input type="password" class="form-control custom-input" required>
+        </div>
+
+        <!-- new password -->
+        <div class="form-group">
+          <label class="exp-label">Nueva contraseña</label>
+          <input type="password" class="form-control custom-input" required>
+        </div>
+
+        <!-- repeat new password -->
+        <div class="form-group">
+          <label class="exp-label">Repetir nueva contraseña</label>
+          <input type="password" class="form-control custom-input" required>
+        </div>
+
+      </section>
+    </div>
+
+    <div class="col-md-8">
+
+      
+      <section> <!-- contact info -->
+        <div class="title-1">Información de contacto</div>
+        <div class="row">
+
+          <!-- phone number -->
+          <div class="form-group col-md-4">
+            <label class="exp-label">Teléfono</label>
+            <input type="text" class="form-control custom-input" required>
+          </div>
+
+          <!-- mobile phone -->
+          <div class="form-group col-md-4">
+            <label class="exp-label">Teléfono móvil</label>
+            <input type="text" class="form-control custom-input" required>
+          </div>
+
+        </div>
+      </section>
+      
+      <section> <!-- billing info -->
+        <div class="title-1">Información de facturación</div>
+        <div class="row">
+
+          <!-- name -->
+          <div class="form-group col-md-4">
+            <label class="exp-label">Nombre</label>
+            <input type="text" class="form-control custom-input" required>
+          </div>
+
+          <!-- address -->
+          <div class="form-group col-md-8">
+            <label class="exp-label">Dirección</label>
+            <input type="text" class="form-control custom-input" required>
+          </div>
+
+          <!-- zip code -->
+          <div class="form-group col-md-4">
+            <label class="exp-label">Código postal</label>
+            <input type="text" class="form-control custom-input" required>
+          </div>
+
+          <!-- city -->
+          <div class="form-group col-md-4">
+            <label class="exp-label">Ciudad</label>
+            <input type="text" class="form-control custom-input" required>
+          </div>
+
+          <!-- region -->
+          <div class="form-group col-md-4">
+            <label class="exp-label">Provincia</label>
+            <input type="text" class="form-control custom-input" required>
+          </div>
+
+          <!-- country -->
+          <div class="form-group col-md-4">
+            <label class="exp-label">País</label>
+            <select class="form-control custom-select" required>
+              <option disabled selected value=""></option>
+              <option>España</option>
+              <option>Estados unidos</option>
+              <option>China</option>
+              <option>India</option>
+            </select>
+          </div>
+          
+          <!-- cif -->
+          <div class="form-group col-md-4">
+            <label class="exp-label">CIF/DNI/NIE</label>
+            <input type="text" class="form-control custom-input" required>
+          </div>
+        </div>
+      </section>
+
+      <section> <!-- send info -->
+        <div class="title-1">Información de envío</div>
+
+        <div class="row">
+
+          <!-- same as billing -->
+          <div class="form-group col-md-12">
+            <div class="form-check"> 
+              <input class="form-check-input" type="checkbox" value="" >
+              <label class="form-check-label" for="defaultCheck1">
+                La dirección de envío es la misma que de facturación.
+              </label>
+            </div>
+          </div>
+
+          <!-- name -->
+          <div class="form-group col-md-4">
+            <label class="exp-label">Nombre</label>
+            <input type="text" class="form-control custom-input" required>
+          </div>
+
+          <!-- address -->
+          <div class="form-group col-md-8">
+            <label class="exp-label">Dirección</label>
+            <input type="text" class="form-control custom-input" required>
+          </div>
+
+          <!-- zip code -->
+          <div class="form-group col-md-4">
+            <label class="exp-label">Código postal</label>
+            <input type="text" class="form-control custom-input" required>
+          </div>
+
+          <!-- city -->
+          <div class="form-group col-md-4">
+            <label class="exp-label">Ciudad</label>
+            <input type="text" class="form-control custom-input" required>
+          </div>
+
+          <!-- region -->
+          <div class="form-group col-md-4">
+            <label class="exp-label">Provincia</label>
+            <input type="text" class="form-control custom-input" required>
+          </div>
+
+          <!-- country -->
+          <div class="form-group col-md-4">
+            <label class="exp-label">País</label>
+            <select class="form-control custom-select" required>
+              <option disabled selected value=""></option>
+              <option>España</option>
+              <option>Estados unidos</option>
+              <option>China</option>
+              <option>India</option>
+            </select>
+          </div>
+
+          <!-- comments -->
+          <div class="form-group col-md-8">
+            <label class="exp-label">Observaciones</label>
+            <input type="text" class="form-control custom-input" required>
+          </div>
+
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+  <footer class="l-footer footer">
+    <div class="l-btncontainer" style="margin-left: auto">
+      <button class="btn btn-alt" (click)="_location.goBack()">
+        <i class="material-icons">arrow_back</i>
+        <span class="btn-text">Volver</span>
+      </button>
+      <button class="btn" (click)="_location.goBack()" [ngClass]="_agencyConfig.userFrom + '-button-light-color'" >
+        <i class="material-icons">check</i>
+        <span class="btn-text">Aplicar cambios</span>
+      </button>
+    </div>
+  </footer> 
+</form>
+
+  

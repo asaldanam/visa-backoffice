@@ -1,0 +1,120 @@
+<div class="navigation-container">
+  <nav class="l-navigation">
+    <div class="l-navigation-box navigation-box">
+      <app-navigation></app-navigation>
+      <div class="l-btncontainer l-navigation-buttons">
+        <button class="btn" [ngClass]="_agencyConfig.userFrom + '-button-light-color'" routerLink="/new-order">
+          <i class="material-icons">add</i>
+          <span class="btn-text">Nuevo pedido</span>
+        </button>
+      </div>
+    </div>
+  </nav>
+</div>
+
+<section class="l-main l-filters">
+  <div class="l-filters-box filters-box">
+
+    <!-- search box -->
+    <div class="input-search-group">
+      <input type="email" class="form-control input-search" placeholder="Buscar...">
+      <i class="material-icons input-search-icon">search</i>
+    </div>
+
+    <div class="l-filters-container">
+      <app-filter></app-filter>
+    </div>
+
+    <!-- items listed -->
+    <div class="items-listed">
+      {{_tables.orders.length}} Pedidos encontrados
+    </div>
+
+  </div>
+</section>
+
+<div *ngIf="loaded === false" >
+  <app-loading></app-loading>
+</div>
+  
+<main class="l-main" *ngIf="loaded === true"  >
+  <div class="exp-table">
+    <header class="exp-table-header visas-columns">
+      <div class="exp-table-cell">
+        <span (click)="_tables.tableSort('destination', $event)" class="exp-table-title" [ngClass]="{ 'active': _tables.tableHeader === 'destination', 'down': _tables.tableHeader === 'destination' && _tables.tableHeaderSort === true, 'up': _tables.tableHeader === 'destination' && _tables.tableHeaderSort === false }">
+          Destino
+        </span>
+      </div>
+      <div class="exp-table-cell">
+        <span (click)="_tables.tableSort('name', $event)" class="exp-table-title" [ngClass]="{ 'active': _tables.tableHeader === 'name', 'down': _tables.tableHeader === 'name' && _tables.tableHeaderSort === true, 'up': _tables.tableHeader === 'name' && _tables.tableHeaderSort === false }">
+          Nombre
+        </span>
+      </div>
+      <div class="exp-table-cell">
+        <span (click)="_tables.tableSort('date', $event)" class="exp-table-title" [ngClass]="{ 'active': _tables.tableHeader === 'date', 'down': _tables.tableHeader === 'date' && _tables.tableHeaderSort === true, 'up': _tables.tableHeader === 'date' && _tables.tableHeaderSort === false }">
+          Solicitado
+        </span>
+      </div>
+      <div class="exp-table-cell">
+        <span (click)="_tables.tableSort('status', $event)" class="exp-table-title" [ngClass]="{ 'active': _tables.tableHeader === 'status', 'down': _tables.tableHeader === 'status' && _tables.tableHeaderSort === true, 'up': _tables.tableHeader === 'status' && _tables.tableHeaderSort === false }">
+          Estado
+        </span>
+      </div>
+      <div class="exp-table-cell">
+        <span (click)="_tables.tableSort('visa', $event)" class="exp-table-title" [ngClass]="{ 'active': _tables.tableHeader === 'visa', 'down': _tables.tableHeader === 'visa' && _tables.tableHeaderSort === true, 'up': _tables.tableHeader === 'visa' && _tables.tableHeaderSort === false }">
+          Visado
+        </span>
+      </div>
+      <div class="exp-table-cell">
+        <span class="exp-table-title"></span>
+      </div>
+    </header>
+    
+    
+    <div class="exp-table-row visas-columns" *ngFor="let index of _tables.orders">
+      <div class="exp-table-cell">
+        <img class="exp-table-flag" src="./assets/img/flags/united-states-of-america.svg" alt="">
+        <span class="exp-table-text">Estados unidos</span>
+      </div>
+      <div class="exp-table-cell">
+        <span class="exp-table-name">John Doe</span>
+      </div>
+      <div class="exp-table-cell">
+        <span>27 dic 2017</span>&nbsp;
+        <span class="exp-table-hour hidden-md">18:31</span>
+      </div>
+      <div class="exp-table-cell">
+        <span class="exp-table-status warning">
+            <i class="material-icons">brightness_1</i>
+        </span>
+        <span class="exp-table-text">Esperando documentación y esto es un texto muy largo</span>
+      </div>
+      <div class="exp-table-cell">
+        <span>PXT1113ES1</span>
+      </div>
+      <div class="exp-table-cell">
+        <div class="exp-table-actions"
+          (mouseenter)="_tables.tableActionsDisplay('show')"
+          (mouseleave)="_tables.tableActionsDisplay('hide')"
+          >
+          <i class="material-icons">more_horiz</i>
+          <div class="exp-table-actions-items">
+            <i class="material-icons" (click)="_modals.setDialogVisa = !_modals.setDialogVisa">edit</i>
+            <i class="material-icons" routerLink="/visa-detail">arrow_forward</i>
+          </div>
+        </div>
+      </div>
+    
+    
+    
+    </div>
+  </div>
+
+  <button class="btn exp-table-more" (click)="_tables.nextPage();">
+    <span *ngIf="!_tables.loaded"><div class="loader">Loading...</div></span>
+    <span *ngIf="_tables.loaded">Ver más</span>
+  </button>
+</main>
+
+<!-- visa -->
+<app-m-visa-edit [(visible)]="_modals.setDialogVisa"></app-m-visa-edit>

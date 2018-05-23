@@ -1,0 +1,40 @@
+<nav [ngClass]="['nav-menu', _agencyConfig.userFrom + '-font-light-color']" (click)="showNavMenu()">
+  <!-- <i class="material-icons nav-menubutton">menu</i> -->
+  <span class="nav-title">
+    {{title}}
+  </span>
+  <i class="material-icons nav-icon">arrow_drop_down</i>
+</nav>
+
+<div class="l-dropdown nav-dropdown" [ngClass]="{'show': navMenu, 'hide': !navMenu}" (click)="showNavMenu()">
+
+  <div class="l-nav-item nav-header">Vistas</div>
+  <a class="l-nav-item nav-item" routerLink="/orders" routerLinkActive="{{_agencyConfig.userFrom + '-font-light-color'}}" [ngClass]="agencyColor('-font-light-color', '/order-detail')">
+    <span>Pedidos</span>
+  </a>
+  <a class="l-nav-item nav-item" routerLink="/visas" routerLinkActive="{{_agencyConfig.userFrom + '-font-light-color'}}" [ngClass]="agencyColor('-font-light-color', '/visa-detail')">
+    <span>Visados</span>
+  </a>
+
+  <div class="l-nav-item nav-header">Acciones</div>
+  <a class="l-nav-item nav-item" routerLink="/new-order" routerLinkActive="{{_agencyConfig.userFrom + '-font-light-color'}}" [ngClass]="agencyColor('-font-light-color', '/new-order-breakdown')">
+    <span>Nuevo pedido</span>
+  </a>
+
+  <div class="l-nav-item nav-header">Administrador</div>
+  <a class="l-nav-item nav-item" routerLink="/users-import" routerLinkActive="{{_agencyConfig.userFrom + '-font-light-color'}}">
+    <span>Importar usuarios</span>
+  </a> 
+
+  <div class="l-nav-item nav-header">Opciones de usuario</div>
+  <a class="l-nav-item nav-item" routerLink="/settings" routerLinkActive="{{_agencyConfig.userFrom + '-font-light-color'}}">
+    <span>Ajustes</span>
+  </a>
+
+  <a class="l-nav-item nav-item" routerLink="/login">
+    <span>Cerrar sesión</span>
+  </a> 
+  
+</div>
+
+<div class="l-areaback" *ngIf="navMenu" (click)="showNavMenu()"></div>

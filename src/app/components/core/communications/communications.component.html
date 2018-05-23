@@ -1,0 +1,155 @@
+  <!-- Communications -->
+  <section class="row">
+      <div class="col-12">
+        <div class="title-1">Comunicaciones y consultas</div>
+  
+        <!-- communications table -->
+        <div class="exp-table mb-1">
+          <!-- table header -->
+          <header class="exp-table-header od-visa-columns">
+              <div class="exp-table-cell"> <!-- icon -->
+              <span>
+                <!-- icon -->
+              </span>
+            </div>
+            <div class="exp-table-cell"> <!-- author -->
+              <span (click)="_tables.tableSort('author', $event)" class="exp-table-title" [ngClass]="{ 'active': _tables.tableHeader === 'author', 'down': _tables.tableHeader === 'author' && _tables.tableHeaderSort === true, 'up': _tables.tableHeader === 'author' && _tables.tableHeaderSort === false }">
+                Autor
+              </span>
+            </div>
+            <div class="exp-table-cell"> <!-- c-date -->
+              <span (click)="_tables.tableSort('c-date', $event)" class="exp-table-title" [ngClass]="{ 'active': _tables.tableHeader === 'c-date', 'down': _tables.tableHeader === 'c-date' && _tables.tableHeaderSort === true, 'up': _tables.tableHeader === 'c-date' && _tables.tableHeaderSort === false }">
+                Fecha
+              </span>
+            </div>
+            <div class="exp-table-cell"> <!-- attached -->
+              <!-- <span (click)="_tables.tableSort('surname', $event)" class="exp-table-title" [ngClass]="{ 'active': _tables.tableHeader === 'surname', 'down': _tables.tableHeader === 'surname' && _tables.tableHeaderSort === true, 'up': _tables.tableHeader === 'surname' && _tables.tableHeaderSort === false }">
+                Adjuntos
+              </span> -->
+            </div>
+            <div class="exp-table-cell"> <!-- c-message -->
+              <span (click)="_tables.tableSort('c-message', $event)" class="exp-table-title" [ngClass]="{ 'active': _tables.tableHeader === 'c-message', 'down': _tables.tableHeader === 'c-message' && _tables.tableHeaderSort === true, 'up': _tables.tableHeader === 'c-message' && _tables.tableHeaderSort === false }">
+                Mensaje
+              </span>
+            </div>   
+            <div class="exp-table-cell"> <!-- actions -->
+              <span class="exp-table-title"></span>
+            </div>
+          </header>
+  
+          <!-- row -->
+          <div class="exp-table-row od-visa-columns">
+            <div class="exp-table-cell"> <!-- icon -->
+              <span>
+                  <!-- <i class="material-icons is-msg is-send">message</i> -->
+                  <i class="material-icons is-msg is-recived">comment</i>
+              </span>
+            </div>
+            <div class="exp-table-cell"> <!-- author -->
+              <span class="exp-table-text">Expediatur</span>
+            </div>
+            <div class="exp-table-cell"> <!-- c-date -->
+              <span>28 dic 2017</span>&nbsp;
+              <span class="exp-table-hour hidden-md">09:15</span>
+            </div>
+            <div class="exp-table-cell"> <!-- attached -->
+              <!-- <span><i class="material-icons">attachment</i></span> -->
+            </div>
+            <div class="exp-table-cell"> <!-- c-message -->
+              <span class="exp-table-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint quia vero nihil voluptatem ex maxime soluta dolorum assumenda, laborum minus amet deleniti sed nostrum suscipit, iste obcaecati repellat id iusto!</span>
+            </div>
+            <div class="exp-table-cell"> <!-- actions -->
+              <div class="exp-table-actions">
+                <i class="material-icons">more_horiz</i>
+                <div class="exp-table-actions-items">
+                  <i class="material-icons" style="font-size: 18px;" (click)="_modals.openModal('communication')">remove_red_eye</i>  
+                </div>
+              </div>
+            </div>
+          </div>
+  
+          <!-- row -->
+          <div class="exp-table-row od-visa-columns">
+            <div class="exp-table-cell"> <!-- icon -->
+              <span>
+                  <i class="material-icons is-msg is-send">message</i>
+                  <!-- <i class="material-icons is-msg is-recived">comment</i> -->
+              </span>
+            </div>
+            <div class="exp-table-cell"> <!-- author -->
+              <span class="exp-table-text">John Doe</span>
+            </div>
+            <div class="exp-table-cell"> <!-- c-date -->
+              <span>27 dic 2017</span>&nbsp;
+              <span class="exp-table-hour hidden-md">18:31</span>
+            </div>
+            <div class="exp-table-cell"> <!-- attached -->
+              <span><i class="material-icons">attachment</i></span>
+            </div>
+            <div class="exp-table-cell"> <!-- c-message -->
+              <span class="exp-table-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint quia vero nihil voluptatem ex maxime soluta dolorum assumenda, laborum minus amet deleniti sed nostrum suscipit, iste obcaecati repellat id iusto!</span>
+            </div>
+            <div class="exp-table-cell"> <!-- actions -->
+              <div class="exp-table-actions">
+                <i class="material-icons">more_horiz</i>
+                <div class="exp-table-actions-items">
+                  <i class="material-icons" style="font-size: 18px;" (click)="_modals.openModal('communication')">remove_red_eye</i>  
+                </div>
+              </div>
+            </div>
+          </div>
+  
+        </div>
+  
+        <!-- new communication -->
+        <div *ngIf="newCom == true" class="l-new-communication new-communication">
+            <div class="row">
+              <div class="form-group col-sm-5">
+                <label class="exp-label" for="">Asunto de la consulta</label>
+                <select class="form-control custom-select">
+                  <option selected>Para este pedido</option>
+                  <option>Visado de John Doe</option>
+                </select>
+              </div>
+              <div class="form-group col-sm-7">
+                <label for="" class="exp-label">Archivo adjunto</label>
+                <div class="custom-file">
+                  <input type="file" class="custom-file-input" id="customFileLang" lang="es">
+                  <label class="custom-file-label" for="customFileLang">Seleccionar Archivo</label>
+                </div>  
+              </div>
+            </div>
+            <div class="row">
+              <div class="form-group col-12">
+                <label class="exp-label" for="">Mensaje</label>
+                <textarea class="form-control custom-textarea" placeholder="Escriba su mensaje aquí..."></textarea>
+              </div>
+            </div>
+            <div class="l-btn-container-right">
+              <button class="btn btn-alt" (click)="setNewCom();">
+                <span>Cancelar</span>
+              </button>
+              <button class="btn" [ngClass]="_agencyConfig.userFrom + '-button-light-color'" (click)="setNewCom();">
+                <i class="material-icons">send</i>
+                <span>Enviar</span>
+              </button>
+            </div>
+          </div>
+  
+  
+          <footer class="l-btn-container-right" *ngIf="this.newCom == false">
+  
+            <button class="btn" [ngClass]="_agencyConfig.userFrom + '-button-light-color'" (click)="setNewCom();">
+              <i class="material-icons">message</i>
+              <span class="btn-text">Nueva consulta</span>
+            </button>
+  
+          </footer>
+          
+      </div>      
+    </section>
+
+
+
+<!-- communication -->
+<app-m-communication [(visible)]="_modals.setDialogCommunication"></app-m-communication>

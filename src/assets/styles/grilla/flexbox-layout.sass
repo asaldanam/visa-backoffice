@@ -1,0 +1,43 @@
+//breakdowns map
+$brk-list: ("xs":$xs, "sm":$sm, "md":$md, "lg":$lg, "xl":$xl)
+
+//row
+.row
+  display: flex
+  flex-wrap: wrap
+  flex-direction: row
+  align-items: stretch
+  justify-content: flex-start
+
+.row-baseline
+  @extend .row
+  align-items: baseline
+
+//Columns
+[class*="col-"]
+  box-sizing: border-box
+  width: 100%
+  display: block
+
+@each $slug, $break in $brk-list
+  @media only screen and (min-width: $break + 1)
+
+    [class*="col-#{$slug}-"]
+      padding-right: $gap
+      padding-left: $gap
+      &:last-child
+        padding-right: 0px
+      &:first-child
+        padding-left: 0px
+
+    @for $i from 1 through 12
+      .col-#{$slug}-#{$i}
+        width: 100% * $i / 12
+
+
+//offsets
+@each $slug, $break in $brk-list
+  @media only screen and (min-width: $break + 1)
+    @for $i from 1 through 12
+      .offset-#{$slug}-#{$i}
+        margin-left: 100% * $i / 12

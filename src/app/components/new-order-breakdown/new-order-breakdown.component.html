@@ -1,0 +1,129 @@
+<div class="navigation-container">
+    <nav class="l-navigation">
+      <div class="l-navigation-box navigation-box">
+        <app-navigation></app-navigation>
+        <div class="l-btncontainer l-navigation-buttons">
+          <button class="btn btn-alt" (click)="_location.goBack()">
+            <i class="material-icons">arrow_back</i>
+            <span class="btn-text">Modificar</span>
+          </button>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+<!-- loading spinner -->
+<div *ngIf="loaded === false">
+  <app-loading></app-loading>
+</div>
+
+<!-- main content -->
+<main class="l-main" *ngIf="loaded === true" [ngClass]="{'loaded': loaded}">
+
+   <div class="breakdown-container">
+
+      <div class="alert is-warning mb-1 text-center">
+        Los pedidos finalizados no podrán ser modificados una vez se hayan completado.
+      </div>
+      
+      <table class="breakdown-table">
+          <thead>
+            <tr>
+              <th class="text-left">Concepto</th>
+              <th>Ud</th>
+              <th>Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th colspan="3" class="breakdown-header"  [ngClass]="['nav-menu', _agencyConfig.userFrom + '-font-light-color']"  >Visados</th>
+            </tr>
+            <tr>
+              <th>Tasas consulares</th>
+              <td>45.00<span class="currency">€</span></td>
+              <td>45.00<span class="currency">€</span></td>
+            </tr>
+            <tr>
+              <th>Tasas Expediatur</th>
+              <td>30.00<span class="currency">€</span></td>
+              <td>30.00<span class="currency">€</span></td>
+            </tr>
+            <tr>
+              <th colspan="3" class="breakdown-header"  [ngClass]="['nav-menu', _agencyConfig.userFrom + '-font-light-color']"  >Envío</th>
+            </tr>
+            <tr>
+              <th>Mensajería urgente</th>
+              <td>11.50<span class="currency">€</span></td>
+              <td>11.50<span class="currency">€</span></td>
+            </tr>        
+            <tr>
+              <th colspan="3" class="breakdown-header"  [ngClass]="['nav-menu', _agencyConfig.userFrom + '-font-light-color']"  >Suplementos</th>
+            </tr>
+            <tr>
+              <th>Impresión fotográfica</th>
+              <td>6.05<span class="currency">€</span></td>
+              <td>6.05<span class="currency">€</span></td>
+            </tr>        
+            <tr>
+              <th>Recogida en domicilio</th>
+              <td>30.00<span class="currency">€</span></td>
+              <td>60.00<span class="currency">€</span></td>
+            </tr>
+            <tr>
+              <th colspan="3" class="breakdown-header"  [ngClass]="['nav-menu', _agencyConfig.userFrom + '-font-light-color']"  >Subtotales</th>
+            </tr>
+            <tr>
+              <th colspan="2">Base imponible</th>
+              <td>68.06<span class="currency">€</span></td>
+            </tr>      
+            <tr>
+              <th colspan="2">Suplidos</th>
+              <td>20.51<span class="currency">€</span></td>
+            </tr>      
+          </tbody>
+        </table>
+        
+        <div class="breakdown-boxes">
+          <div class="breakdown-item is-alt">
+            <span class="breakdown-title">Subtotal</span>
+            <span class="breakdown-price">113.06<span class="currency">€</span></span>
+          </div>
+          <div class="breakdown-item is-alt">
+            <span class="breakdown-title">Impuestos</span>
+            <span class="breakdown-price">14.29<span class="currency">€</span></span>
+          </div>
+          <div class="breakdown-item is-total" [ngClass]="['nav-menu', _agencyConfig.userFrom + '-bg-light']">
+            <span class="breakdown-title">Total</span>
+            <span class="breakdown-price">127.35<span class="currency">€</span></span>
+          </div>
+        </div>
+   </div>
+
+</main>
+
+<!-- footer -->
+<footer class="l-main">
+  <div class="l-footer footer">
+    <div class="price">
+        <span class="price-text" [ngClass]="['nav-menu', _agencyConfig.userFrom + '-font-light-color']">
+          127.35<span class="currency">€</span>
+        </span>
+      </div>
+      <div class="l-btncontainer">
+        <button class="btn btn-alt" routerLink="/orders">
+          <i class="material-icons">save</i>
+          <span class="btn-text">Borrador</span>
+        </button>
+        <button class="btn" [ngClass]="_agencyConfig.userFrom + '-button-light-color'" (click)="_modals.openModal('save')">
+          <i class="material-icons">check</i>
+          <span class="">Finalizar</span>
+        </button>
+      </div>
+  </div>
+</footer>
+
+<!-- MODALS -->
+<!-- cancel order -->
+<app-m-neworder-exit [(visible)]="_modals.setDialogCancel"></app-m-neworder-exit>
+<!-- save order -->
+<app-m-neworder-save [(visible)]="_modals.setDialogSave"></app-m-neworder-save>

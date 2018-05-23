@@ -1,0 +1,100 @@
+<div *ngIf="visible" class="l-modal-container">
+  
+  <div class="l-modalaside-box asidemodal-box" [ngClass]="{'show': visible }">
+
+    <header class="l-modalaside-bar asidemodal-header">
+      <div class="modal-title">Presupuesto</div>
+      <button class="btn-icon btn-alt" (click)="close()">
+        <i class="material-icons">close</i>
+      </button>
+    </header>
+
+    <div class="l-modalaside-body modal-body hidden-scroll">
+      <br>
+      <table class="breakdown-table">
+        <thead>
+          <tr>
+            <th class="text-left">Concepto</th>
+            <th>Ud</th>
+            <th>Total</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th colspan="3" class="breakdown-header"  [ngClass]="['nav-menu', _agencyConfig.userFrom + '-font-light-color']"  >Visados</th>
+          </tr>
+          <tr>
+            <th>Tasas consulares</th>
+            <td>45.00<span class="currency">€</span></td>
+            <td>45.00<span class="currency">€</span></td>
+          </tr>
+          <tr>
+            <th>Tasas Expediatur</th>
+            <td>30.00<span class="currency">€</span></td>
+            <td>30.00<span class="currency">€</span></td>
+          </tr>
+          <tr>
+            <th colspan="3" class="breakdown-header"  [ngClass]="['nav-menu', _agencyConfig.userFrom + '-font-light-color']"  >Envío</th>
+          </tr>
+          <tr>
+            <th>Mensajería urgente</th>
+            <td>11.50<span class="currency">€</span></td>
+            <td>11.50<span class="currency">€</span></td>
+          </tr>        
+          <tr>
+            <th colspan="3" class="breakdown-header"  [ngClass]="['nav-menu', _agencyConfig.userFrom + '-font-light-color']"  >Suplementos</th>
+          </tr>
+          <tr>
+            <th>Impresión fotográfica</th>
+            <td>6.05<span class="currency">€</span></td>
+            <td>6.05<span class="currency">€</span></td>
+          </tr>        
+          <tr>
+            <th>Recogida en domicilio</th>
+            <td>30.00<span class="currency">€</span></td>
+            <td>60.00<span class="currency">€</span></td>
+          </tr>
+          <tr>
+            <th colspan="3" class="breakdown-header"  [ngClass]="['nav-menu', _agencyConfig.userFrom + '-font-light-color']"  >Subtotales</th>
+          </tr>
+          <tr>
+            <th colspan="2">Base imponible</th>
+            <td>68.06<span class="currency">€</span></td>
+          </tr>      
+          <tr>
+            <th colspan="2">Suplidos</th>
+            <td>20.51<span class="currency">€</span></td>
+          </tr>      
+        </tbody>
+      </table>
+      
+      <div class="breakdown-boxes">
+        <div class="breakdown-item is-alt">
+          <span class="breakdown-title">Subtotal</span>
+          <span class="breakdown-price">113.06<span class="currency">€</span></span>
+        </div>
+        <div class="breakdown-item is-alt">
+          <span class="breakdown-title">Impuestos</span>
+          <span class="breakdown-price">14.29<span class="currency">€</span></span>
+        </div>
+        <div class="breakdown-item is-total" [ngClass]="['nav-menu', _agencyConfig.userFrom + '-bg-light']">
+          <span class="breakdown-title">Total</span>
+          <span class="breakdown-price">127.35<span class="currency">€</span></span>
+        </div>
+      </div>
+   
+    </div>
+
+    <footer class="l-modalaside-bar">
+      <div class="l-btn-container-right">
+        <button class="btn btn-alt-border" (click)="close()">
+          <!-- <i class="material-icons">save</i> -->
+          <span>Volver</span>
+        </button>
+      </div>
+    </footer>
+
+  </div>
+  <div class="l-areaback" *ngIf="visible" (click)="close()"></div>
+</div>
+

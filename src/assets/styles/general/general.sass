@@ -1,0 +1,85 @@
+//Responsive utilities
+.hidden-sm
+  @media (max-width: $sm)
+    display: none !important
+.hidden-md
+  @media (max-width: $md)
+    display: none !important
+.hidden-lg
+  @media (max-width: $lg)
+    display: none !important
+
+//elements
+.footer
+  @include flex(space-between, center, row)
+  width: 100%
+  border-top: 1px solid $grey-light
+
+
+.price-text
+  font-size: 1.5em
+  font-weight: 400
+  margin-right: 5px
+
+.price-icon
+  color: darken($grey-light, 15%)
+  
+.price
+  @include flex(flex-start, center, row)
+
+  &:hover
+    .price-icon
+      color: $grey-font
+
+
+//headlines
+.title-1
+  font-size: 1.25em
+  display: block
+  width: 100%
+  padding-bottom: 5px
+  margin-bottom: 15px
+  margin-top: 30px
+  border-bottom: 1px solid $grey-light
+  font-weight: 400
+
+  &.has-noborder
+    border: none
+    margin-bottom: 7px
+    padding-bottom: 0
+
+.currency
+  opacity: 0.5
+  padding-left: 1px
+
+//tools
+.cursor-pointer
+  cursor: pointer !important
+
+.hidden-scroll
+  overflow-y: auto
+  overflow-y: overlay
+  overflow-x: hidden
+
+  &::-webkit-scrollbar
+    width: 0px
+
+  &::-webkit-scrollbar-track-piece
+    background-color: transparent
+    -webkit-border-radius: 6px
+
+.text-center
+  text-align: center !important
+
+.text-left
+  text-align: left !important
+
+.text-right
+  text-align: right !important
+
+
+.mb-1
+  margin-bottom: 1em !important
+
+.mt-1
+  margin-top: 1em !important

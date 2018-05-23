@@ -1,0 +1,59 @@
+@import "_grilla";
+
+//breakpoint variables
+$sm: 575.98px;
+$md: 767.98px;
+$lg: 991.98px;
+$xl: 1199.98px;
+
+
+//layout
+@mixin l-main {
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+  max-width: $lg;
+  box-sizing: border-box;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+//colors
+$grey-bg: #F3F5F7;
+$grey-light: #e2e8ed;
+$grey-font: #4A4A4A;
+$grey-font-light: #828D9A;
+
+$color-warning: #F6A623;
+$color-error: #DD584B;
+$color-valid: #26A820;
+$color-info: #4990E2;
+
+//shadows
+$shadow-long: 0 19px 38px rgba(0,0,0,0.05), 0 15px 12px rgba(0,0,0,0.10);
+$shadow-xshort: 0px 0px 5px 0px rgba(0, 0, 0, 0.5);
+
+//Transitions
+$smooth-short: all 0.3s cubic-bezier(0.750, 0.001, 0.250, 1.000);
+$smooth-long: all 0.8s cubic-bezier(0.750, 0.001, 0.250, 1.000);
+$linear-short: all 0.3s linear;
+$linear-long: all 0.8s linear;
+
+//fonts
+$font-main: 'Source Sans', sans-serif;
+
+@mixin material-icons {
+  direction: ltr;
+  display: inline-block;
+  font-family: 'Material Icons';
+  font-size: 24px;
+  font-style: normal;
+  font-weight: normal;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  word-wrap: normal;
+  -webkit-font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased; 
+}

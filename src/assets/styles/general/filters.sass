@@ -1,0 +1,59 @@
+
+//LAYOUT
+.l-filters
+  height: 42px
+  margin-bottom: 1em
+
+.l-filters-container
+  // @media (max-width: $md)
+  //   margin-left: auto
+
+
+.l-filters-box
+  height: 100%
+  width: 100%
+
+//MODULES
+.filters-box
+  @include flex(flex-start, center, row)
+
+.items-listed
+  margin-left: auto
+  color: $grey-font-light
+  font-size: 0.875em
+  @media (max-width: $sm)
+    display: none
+
+
+
+//search field
+.input-search-group
+  @include flex(flex-start, center, row-reverse) 
+  border-bottom: 1px solid transparentize($grey-font-light, 0.5)
+
+  .input-search
+    background-color: transparent
+    border: none
+    border-radius: 0
+    padding-left: 0.25em
+    font-size: 0.875em
+
+    &:focus, &:active
+      background-color: transparent
+      border: none
+      border-radius: 0
+
+      &::placeholder
+        transition: $linear-short
+        color: transparent
+
+  .input-search-icon
+    color: transparentize($grey-font-light, 0.5)
+    margin-bottom: 2px
+    font-size: 20
+    transition: $linear-short
+
+  .input-search:focus + .input-search-icon
+    color: $grey-font
+  
+

@@ -1,0 +1,39 @@
+.l-main
+  @include l-main
+
+.l-header
+  width: 100%
+  @include flex(space-between, center, row)
+
+.l-footer
+  height: 60px
+  margin-top: 1em
+  
+.l-dropdown
+  position: absolute
+  z-index: 1000
+  background-color: white
+  border-radius: 3px
+  margin-top: 8px
+  box-shadow: $shadow-long
+
+  &.hide
+    display: none
+    opacity: 0
+    animation: fade-out 250ms linear
+  &.show
+    display: block
+    opacity: 1
+    animation: fade-in 250ms linear
+
+.l-areaback
+  position: fixed
+  animation: fade-in 150ms linear
+  background-color: transparentize($grey-bg, 0.15)
+  z-index: 999
+  top: 0
+  bottom: 0
+  left: 0
+  right: 0
+
+

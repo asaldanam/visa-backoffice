@@ -1,0 +1,27 @@
+<div *ngIf="visible" class="l-modal-container">
+  <div class="l-modal-box modal-box">
+
+    <div class="l-finish-alert finish-alert is-valid">
+      <img src="./assets/img/finish/valid.svg" alt="" class="finish-img">
+      <div class="finish-title">¡Hecho!</div>
+    </div>
+
+    <div class="modal-body text-center">
+      Su pedido se ha realizado correctamente. Por favor, adjunte a cada visado los documentos requeridos si no lo hubiera hecho previamente en la creación del pedido.
+    </div>
+
+    <footer class="modal-footer">
+      <div class="l-btn-container-center">
+        <button class="btn btn-alt-border" routerLink="/orders">
+          <span>Ir a Pedidos</span>
+        </button>
+        <button class="btn" [ngClass]="_agencyConfig.userFrom + '-button-light-color'" routerLink="/order-detail">
+          <span>Ver Pedido</span>
+        </button>
+      </div>
+    </footer>
+
+  </div>
+  <div class="l-areaback" *ngIf="visible" routerLink="/orders"></div>
+</div>
+

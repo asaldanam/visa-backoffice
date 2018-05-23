@@ -1,0 +1,143 @@
+<div *ngIf="visible" class="l-modal-container">
+  
+  <div class="l-modalaside-box asidemodal-box" [ngClass]="{'show': visible }">
+
+    <header class="l-modalaside-bar asidemodal-header">
+      <div class="modal-title">PXT1113ES1</div>
+      <button class="btn-icon btn-alt" (click)="close()">
+        <i class="material-icons">close</i>
+      </button>
+    </header>
+
+    <div class="l-modalaside-body modal-body hidden-scroll">
+
+      <div class="row">
+        <div class="form-group col-5">
+          <label class="exp-label">Sexo</label>
+          <select class="form-control custom-select" required>
+            <option selected disabled value=""></option>
+            <option>Hombre</option>
+            <option>Mujer</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="form-group col-sm-5">
+          <label class="exp-label">Nombre</label>
+          <input type="text" class="form-control custom-input" required>
+        </div>
+        <div class="form-group col-sm-7">
+          <label class="exp-label">Apellidos</label>
+          <input type="text" class="form-control custom-input" required>
+        </div>
+      </div>
+
+      <div class="row">
+          <div class="form-group col-12">
+            <label class="exp-label">País de nacimiento</label>
+            <select class="form-control custom-select" required>
+              <option disabled selected value=""></option>
+              <option>Estados unidos</option>
+              <option>China</option>
+              <option>India</option>
+            </select>
+          </div>
+      </div>
+
+      <div class="row">
+        <div class="form-group col-12">
+          <label class="exp-label">Fecha de nacimiento</label>
+          <select class="form-control custom-select custom-day" required>
+            <option disabled selected value="">Día</option>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+            <option>6</option>
+            <option>7</option>
+            <option>8</option>
+            <option>9</option>
+          </select>
+          <select class="form-control custom-select custom-month" required>
+              <option disabled selected value="">Mes</option>
+              <option>Enero</option>
+              <option>Febrero</option>
+              <option>Marzo</option>
+          </select>
+          <select class="form-control custom-select custom-year" required>
+              <option disabled selected value="">Año</option>
+              <option>2018</option>
+              <option>2019</option>
+              <option>2020</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="form-group col-12">
+          <label class="exp-label">Pasaporte</label>
+          <input type="text" class="form-control custom-input" required>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="form-group col-12">
+          <label class="exp-label">Fecha de nacimiento</label>
+          <select class="form-control custom-select custom-day" required>
+            <option disabled selected value="">Día</option>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+            <option>6</option>
+            <option>7</option>
+            <option>8</option>
+            <option>9</option>
+          </select>
+          <select class="form-control custom-select custom-month" required>
+              <option disabled selected value="">Mes</option>
+              <option>Enero</option>
+              <option>Febrero</option>
+              <option>Marzo</option>
+          </select>
+          <select class="form-control custom-select custom-year" required>
+              <option disabled selected value="">Año</option>
+              <option>2018</option>
+              <option>2019</option>
+              <option>2020</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="form-group col-sm-12">
+          <label class="exp-label">Adjuntar archivos</label>
+          <div class="custom-file ">
+              <input type="file" class="custom-file-input" id="customFileLang" lang="es">
+              <span class="custom-file-label" for="customFileLang">Seleccionar Archivo</span>
+            </div>
+        </div>
+      </div>
+
+    </div>
+
+    <footer class="l-modalaside-bar">
+      <div class="l-btn-container-right">
+        <button class="btn btn-alt-border" (click)="close()">
+          <!-- <i class="material-icons">save</i> -->
+          <span>Cancelar</span>
+        </button>
+        <button class="btn" (click)="close()" [ngClass]="_agencyConfig.userFrom + '-button-light-color'" >
+          <!-- <i class="material-icons">delete_forever</i> -->
+          <span>Aplicar</span>
+        </button>
+      </div>
+    </footer>
+
+  </div>
+  <div class="l-areaback" *ngIf="visible" (click)="close()"></div>
+</div>
+

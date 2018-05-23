@@ -1,0 +1,141 @@
+@import "./src/assets/styles/variables"
+@import "./src/assets/styles/color-schemes/schemes"
+
+//LAYOUT
+.l-new-communication
+  width: 100%
+  margin-top: 1.5em
+
+
+//MODULES
+.visas-columns /* Set specific column widths */
+  & > div:nth-child(1)
+    width: 10%
+    @media (max-width: $lg)
+      width: 15%
+
+  & > div:nth-child(2)
+    width: 15%
+    @media (max-width: $lg)
+      width: 20%
+
+  & > div:nth-child(3)
+    width: 15%
+    @media (max-width: $lg)
+      display: none
+
+  & > div:nth-child(4)
+    width: 15%
+    @media (max-width: $lg)
+      width: 25%
+
+  & > div:nth-child(5)
+    width: 15%
+    @media (max-width: $lg)
+      width: 25%
+
+  & > div:nth-child(6)
+    width: 15%
+    @media (max-width: $lg)
+      display: none
+
+  & > div:nth-child(7)
+    width: 5%
+    @media (max-width: $lg)
+      display: none
+    
+  & > div:nth-child(8)
+    width: 10%
+    @media (max-width: $lg)
+      width: 15%
+
+.od-visa-columns /* Set specific column widths */
+
+  & > div:nth-child(1)
+    width: 5%
+    min-width: 50px
+
+  & > div:nth-child(2)
+    width: 10%
+    @media (max-width: $lg)
+      width: 15%
+    @media (max-width: $md)
+      width: 20%
+
+  & > div:nth-child(3)
+    width: 15%
+    @media (max-width: $lg)
+      width: 20%
+    @media (max-width: $md)
+      display: none
+
+  & > div:nth-child(4)
+    width: 5%
+    min-width: 50px
+    @media (max-width: $md)
+      display: none
+
+  & > div:nth-child(5)
+    width: 55%
+    @media (max-width: $lg)
+      width: 45%
+    @media (max-width: $md)
+      width: 55%
+
+  & > div:nth-child(6)
+    width: 10%
+    @media (max-width: $md)
+      width: 60%
+      min-width: 70px
+
+  .is-msg
+    position: relative
+    bottom: -3px
+    cursor: default
+    
+    &.is-send
+      color: transparentize($color-info, 0.5)
+      &:hover
+        color: transparentize($color-info, 0.5)
+    
+    &.is-recived
+      color: $color-info
+      &:hover
+        color: $color-info
+
+.new-communication
+  animation: fade-in 300ms linear
+  border: 1px solid darken($grey-light, 5%)
+  border-radius: 3px
+  padding: 1.5em
+  box-sizing: border-box
+
+.attached-files
+  padding: 0
+  margin: 0
+  border: 1px solid darken($grey-light, 5%)
+  border-radius: 3px
+
+
+.attached-files-item
+  @include flex(flex-start, center, row)
+  padding-bottom: 8px
+  padding-top: 8px
+  padding-right: 4px
+  border-top: 1px solid darken($grey-light, 5%)
+
+  &:first-child
+    border-top: none
+
+  &::before
+    @include material-icons
+    font-size: 20px
+    content: 'attach_file'
+    margin-right: 3px
+    margin-left: 3px
+
+.attached-files-text
+  font-size: 14px
+  width: 100%
+  overflow-x: hidden
+  text-overflow: ellipsis

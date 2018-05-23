@@ -1,0 +1,28 @@
+//LAYOUT
+.l-navigation
+  @include l-main
+
+.l-navigation-box
+  @include flex(flex-start, center, row)
+  width: 100%
+  height: 60px
+
+.l-navigation-buttons
+  margin-left: auto
+  
+
+//MODULES
+.navigation-box
+  border-bottom: 1px solid $grey-light
+
+.navigation-container
+  transition: background-color 100ms linear
+  margin-bottom: 1em
+ 
+  &.ngui-sticky-stuck
+    background-color: white
+    z-index: 100
+    box-shadow: $shadow-xshort
+
+    .navigation-box
+      border-bottom: none !important

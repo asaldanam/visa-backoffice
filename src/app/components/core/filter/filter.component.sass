@@ -1,0 +1,64 @@
+@import "./src/assets/styles/variables"
+
+//LAYOUT
+
+.l-filter-box
+  @include flex(flex-start, center, row)
+  height: 34px
+  padding: 0 0.75em
+  position: relative
+
+.l-filter
+  height: 34px
+  margin-right: 4px
+  &:last-child
+    margin-right: 0
+
+//MODULE
+.filter-item
+  transition: background-color 300ms linear
+  @include flex(flex-start, center, row)
+  border-radius: 3px
+  box-sizing: border-box
+  cursor: pointer
+  border: 1px solid transparent
+
+  &.non-filtered
+    background-color: transparent
+    color: $grey-font-light
+    border-color: $grey-font-light
+
+    .filter-icon
+      display: none !important
+
+
+
+  .filter-text
+    @include flex(flex-start, center, row)
+    font-size: 0.875em
+    height: 100%
+    padding: 0 0.75em
+    box-sizing: border-box
+    // background-color: red
+    width: 100%
+    // font-weight: 300
+
+  .filter-icon
+    @include flex(center, center, row)
+    box-sizing: border-box
+    // background-color: blue
+    height: 100%
+    padding-right: 0.5em
+
+    i.material-icons
+      font-size: 22px
+      position: relative
+      right: -4px
+
+.filter-dropdown
+  top: 34px
+
+.filter-dropdown-box
+  padding: 15px
+  box-sizing: border-box
+  width: 300px

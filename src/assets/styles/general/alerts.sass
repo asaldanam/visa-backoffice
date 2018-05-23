@@ -1,0 +1,47 @@
+//finish alerts
+.l-finish-alert
+  width: 100%
+  
+
+.finish-alert
+  @include flex(center, center, column)
+  padding: 1.5em 0
+
+  &.is-valid
+    color: $color-valid
+
+.finish-img
+  width: 75%
+  max-width: 100px
+  height: auto
+  margin-bottom: 0.75em
+
+.finish-title
+  font-size: 1.5em
+  font-weight: 400
+
+//main alerts
+.alert
+  padding: 10px
+  border: 1px solid $grey-font
+  color: $grey-font
+  border-radius: 3px
+
+  &.is-info
+    border-color: $color-info
+    color: $color-info
+
+  &.is-error
+    border-color: $color-error
+    color: $color-error
+
+  &.is-valid
+    border-color: $color-valid
+    color: $color-valid
+
+  &.is-warning
+    border-color: $color-warning
+    color: $color-warning
+
+  &.is-warning
+    font-size: 0.875em

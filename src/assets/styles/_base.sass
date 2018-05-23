@@ -1,0 +1,64 @@
+//BASE
+body
+  background-color: $grey-bg
+  font-family: $font-main
+  color: $grey-font
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi)
+    font-size: 17px
+
+a
+  text-decoration: none !important
+  outline: none
+  cursor: pointer
+
+a:link, a:hover, a:active, a:focus, a:-webkit-any-link
+  text-decoration: none !important
+  outline: none
+  cursor: pointer
+
+[role="button"],
+input[type="submit"],
+input[type="reset"],
+input[type="button"],
+button
+  // background-color: transparent
+  border: 0
+  height: 2.25em
+  margin: 0.25em
+  padding: 0 1em
+  cursor: pointer
+  outline: none
+  @media (max-width: $md) 
+    padding: 0 0.5em
+
+ul,ol
+  list-style: none
+  padding-left: none
+
+table,
+table tr,
+tr td,
+table tbody,
+table thead,
+table tfoot,
+table tr th,
+table tfoot tr
+  width: auto
+  height: auto
+  margin: 0
+  padding: 0
+  border: none
+  border-collapse: inherit
+  border-spacing: 0
+  border-color: inherit
+  vertical-align: inherit
+  text-align: left
+  font-weight: inherit
+  -webkit-border-horizontal-spacing: 0
+  -webkit-border-vertical-spacing: 0
+
+//material-icons after&before
+i.material-icons
+  &:focus, &:active
+    outline: none
+

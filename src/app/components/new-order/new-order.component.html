@@ -1,0 +1,387 @@
+<div class="navigation-container">
+  <nav class="l-navigation">
+    <div class="l-navigation-box navigation-box">
+      <app-navigation></app-navigation>
+      <div class="l-btncontainer l-navigation-buttons">
+        <button class="btn btn-alt" (click)="_modals.openModal('cancel')">
+          <i class="material-icons">close</i>
+          <span class="btn-text">Cancelar pedido</span>
+        </button>
+      </div>
+    </div>
+  </nav>
+</div>
+
+
+<!-- loading spinner -->
+<div *ngIf="loaded === false">
+    <app-loading></app-loading>
+</div>
+
+
+<!-- main form body -->
+<div class="l-main l-container" *ngIf="loaded === true" [ngClass]="{'loaded': loaded}">
+
+
+  <div class="row">
+    <section class="col-lg-7">
+      <div class="title-1">Datos del pedido</div>
+      <div class="row">
+
+        <div class="col-md-6">
+          <div class="form-group">
+            <label class="exp-label">País de origen</label>
+            <select class="form-control custom-select" required>
+              <option selected>España</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="form-group">
+            <label class="exp-label">País de destino </label>
+            <select class="form-control custom-select" [(ngModel)]="destination" required>
+              <option value="0"></option>
+              <option value="Australia">Australia</option>
+              <option value="Cabo verde">Cabo verde</option>
+              <option value="Camerun">Camerun</option>
+              <option value="China">China</option>
+              <option value="Cuba">Cuba</option>
+              <option value="Egipto">Egipto</option>
+              <option value="Estados unidos">Estados unidos</option>
+              <option value="Ghana">Ghana</option>
+              <option value="India">India</option>
+              <option value="Indonesia">Indonesia</option>
+              <option value="Kenia">Kenia</option>
+              <option value="Mozambique">Mozambique</option>
+              <option value="Myanmar">Myanmar</option>
+              <option value="Rusia">Rusia</option>
+              <option value="Sri lanka">Sri lanka</option>
+              <option value="Turquia">Turquia</option>
+              <option value="Uzbekistan">Uzbekistan</option>
+              <option value="Vietnam">Vietnam</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12">
+          <div class="form-group">
+            <label class="exp-label">Tipo de visado</label>
+            <select class="form-control custom-select" required>
+              <option selected>Turismo</option>
+              <option>Negocios</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label class="exp-label">Tipo de pedido</label>
+            <select class="form-control custom-select" required>
+              <option selected>Trámite ordinario</option>
+              <option>Trámite urgente</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="form-group">
+            <label class="exp-label">Número de entradas</label>
+            <select class="form-control custom-select" required>
+              <option selected>Una entrada</option>
+              <option>Múltiples entradas</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+
+
+        
+    </section>
+
+    <section class="col-lg-5">
+      <div class="title-1">Entrada y salida</div>
+
+      <div class="form-group">
+          <label class="exp-label">Fecha de entrada a {{destination}}</label>
+          <select class="form-control custom-select custom-day" required>
+            <option disabled selected value="">Día</option>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+            <option>6</option>
+            <option>7</option>
+            <option>8</option>
+            <option>9</option>
+          </select>
+          <select class="form-control custom-select custom-month" required>
+              <option disabled selected value="">Mes</option>
+              <option>Enero</option>
+              <option>Febrero</option>
+              <option>Marzo</option>
+          </select>
+          <select class="form-control custom-select custom-year" required>
+              <option disabled selected value="">Año</option>
+              <option>2018</option>
+              <option>2019</option>
+              <option>2020</option>
+          </select>
+        </div>
+
+      <div class="form-group">
+          <label class="exp-label">Fecha de regreso desde {{destination}}</label>
+          <select class="form-control custom-select custom-day" required>
+            <option disabled selected value="">Día</option>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+            <option>6</option>
+            <option>7</option>
+            <option>8</option>
+            <option>9</option>
+          </select>
+          <select class="form-control custom-select custom-month" required>
+              <option disabled selected value="">Mes</option>
+              <option>Enero</option>
+              <option>Febrero</option>
+              <option>Marzo</option>
+          </select>
+          <select class="form-control custom-select custom-year" required>
+              <option disabled selected value="">Año</option>
+              <option>2018</option>
+              <option>2019</option>
+              <option>2020</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="exp-label">Duración</label>
+          <select class="form-control custom-select" required>
+            <option selected>30 días</option>
+            <option>90 días</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+            <div class="form-check"> 
+              <input id="departure-field" class="form-check-input" type="checkbox" [(ngModel)]="departure">
+              <label for="departure-field" class="form-check-label">
+                El cliente necesita el pasaporte antes de la fecha de entrada al país
+              </label>
+            </div>
+        </div>
+
+        <div class="form-group" *ngIf="departure">
+          <label class="exp-label">Fecha de partida</label>
+          <select class="form-control custom-select custom-day" required>
+            <option disabled selected value="">Día</option>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+            <option>6</option>
+            <option>7</option>
+            <option>8</option>
+            <option>9</option>
+          </select>
+          <select class="form-control custom-select custom-month" required>
+              <option disabled selected value="">Mes</option>
+              <option>Enero</option>
+              <option>Febrero</option>
+              <option>Marzo</option>
+          </select>
+          <select class="form-control custom-select custom-year" required>
+              <option disabled selected value="">Año</option>
+              <option>2018</option>
+              <option>2019</option>
+              <option>2020</option>
+          </select>
+        </div>
+
+      </section>
+  </div>
+
+  <div class="row">
+    <section class="col-12">
+      <div class="title-1">Visados</div>
+      <div class="exp-table mb-1">
+          <header class="exp-table-header visas-columns">
+            <div class="exp-table-cell">
+              <span (click)="_tables.tableSort('name', $event)" class="exp-table-title" [ngClass]="{ 'active': _tables.tableHeader === 'name', 'down': _tables.tableHeader === 'name' && _tables.tableHeaderSort === true, 'up': _tables.tableHeader === 'name' && _tables.tableHeaderSort === false }">
+                Nombre
+              </span>
+            </div>
+            <div class="exp-table-cell">
+              <span (click)="_tables.tableSort('surname', $event)" class="exp-table-title" [ngClass]="{ 'active': _tables.tableHeader === 'surname', 'down': _tables.tableHeader === 'surname' && _tables.tableHeaderSort === true, 'up': _tables.tableHeader === 'surname' && _tables.tableHeaderSort === false }">
+                Apellidos
+              </span>
+            </div>
+            <div class="exp-table-cell">
+              <span (click)="_tables.tableSort('country', $event)" class="exp-table-title" [ngClass]="{ 'active': _tables.tableHeader === 'country', 'down': _tables.tableHeader === 'country' && _tables.tableHeaderSort === true, 'up': _tables.tableHeader === 'country' && _tables.tableHeaderSort === false }">
+                País nacimiento
+              </span>
+            </div>
+            <div class="exp-table-cell">
+              <span (click)="_tables.tableSort('born', $event)" class="exp-table-title" [ngClass]="{ 'active': _tables.tableHeader === 'born', 'down': _tables.tableHeader === 'born' && _tables.tableHeaderSort === true, 'up': _tables.tableHeader === 'born' && _tables.tableHeaderSort === false }">
+                Fecha nacim.
+              </span>
+            </div>
+            <div class="exp-table-cell">
+              <span (click)="_tables.tableSort('passport', $event)" class="exp-table-title" [ngClass]="{ 'active': _tables.tableHeader === 'passport', 'down': _tables.tableHeader === 'passport' && _tables.tableHeaderSort === true, 'up': _tables.tableHeader === 'passport' && _tables.tableHeaderSort === false }">
+                Pasaporte
+              </span>
+            </div>
+            <div class="exp-table-cell">
+              <span (click)="_tables.tableSort('expiration', $event)" class="exp-table-title" [ngClass]="{ 'active': _tables.tableHeader === 'expiration', 'down': _tables.tableHeader === 'expiration' && _tables.tableHeaderSort === true, 'up': _tables.tableHeader === 'expiration' && _tables.tableHeaderSort === false }">
+                F. exp.
+              </span>
+            </div>
+            <div class="exp-table-cell">
+              <span (click)="_tables.tableSort('attachfiles', $event)" class="exp-table-title" [ngClass]="{ 'active': _tables.tableHeader === 'attachfiles', 'down': _tables.tableHeader === 'attachfiles' && _tables.tableHeaderSort === true, 'up': _tables.tableHeader === 'attachfiles' && _tables.tableHeaderSort === false }">
+                Adjuntos
+              </span>
+            </div>
+            <div class="exp-table-cell">
+              <span class="exp-table-title"></span>
+            </div>
+          </header>
+          <div class="exp-table-row visas-columns">
+            <div class="exp-table-cell">
+              <span>John</span>
+            </div>
+            <div class="exp-table-cell">
+              <span class="exp-table-text">Doe</span>
+            </div>
+            <div class="exp-table-cell">
+              <span class="exp-table-text">Estados Unidos de América</span>
+            </div>
+            <div class="exp-table-cell">
+              <span class="exp-table-text">12 Agosto 1980</span>
+            </div>
+            <div class="exp-table-cell">
+              <span>12344565567690</span>
+            </div>
+            <div class="exp-table-cell">
+              <span>12 Agosto 1980</span>
+            </div>
+            <div class="exp-table-cell">
+              <span><i class="material-icons">attachment</i></span>
+            </div>
+
+            <div class="exp-table-cell">
+              <div class="exp-table-actions">
+                <i class="material-icons">more_horiz</i>
+                <div class="exp-table-actions-items">
+                  <i class="material-icons" style="font-size: 18px;" (click)="_modals.setDialogVisa = !_modals.setDialogVisa">edit</i>  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    
+        <footer class="l-btn-container-right">
+          <button class="btn" [ngClass]="_agencyConfig.userFrom + '-button-light-color'" (click)="_modals.openModal('visa')">
+            <i class="material-icons">add</i>
+            <span class="btn-text">Añadir visado</span>
+          </button>
+        </footer>
+
+      </section>
+  </div>
+
+  <div class="row">
+    <section class="col-md-4">
+      <div class="title-1">Servicios adicionales</div>
+        <div class="row">
+          <div class="form-group col-12">
+            <label class="exp-label">Seguro de viaje</label>
+            <select class="form-control custom-select" required>
+              <option disabled selected value=""></option>
+              <option>Seguro hasta 30 días</option>
+            </select>
+          </div>
+          <div class="form-group col-12">
+            <label class="exp-label">Método de entrega</label>
+            <select class="form-control custom-select" required>
+              <option disabled selected value=""></option>
+              <option>Mensajería común</option>
+              <option>Mensajería urgente</option>
+            </select>
+          </div>
+        </div>
+    </section>
+    
+    <section class="col-md-8">
+      <div class="title-1">Requisitos</div>
+      <ul class="requirements-list">
+        <li class="requirements-item">
+          <header class="requirements-header">
+            <i class="material-icons requirements-icon">insert_drive_file</i>
+            <span class="requirements-title">Permiso de residencia y empadronamiento	</span>
+          </header>
+          <div class="requirements-body">En caso de que el viajero no tenga nacionalidad española deberá aportar: Fotocopia del permiso de residencia o NIE y Certificado de empadronamiento emitido por el municipio donde reside el viajero.</div>
+        </li>
+        <li class="requirements-item">
+          <header class="requirements-header">
+            <i class="material-icons requirements-icon">insert_drive_file</i>
+            <span class="requirements-title">Formulario ETA electrónico</span>
+          </header>
+          <div class="requirements-body">Deberá rellenar el formulario que le haremos llegar una vez finalice su solicitud.</div>
+        </li>
+      </ul>
+    </section>
+  </div>
+
+  <footer class="l-footer footer">
+
+    <div class="price" (click)="_modals.openModal('breakdown')">
+      <span class="price-text cursor-pointer" [ngClass]="['nav-menu', _agencyConfig.userFrom + '-font-light-color']">
+        127.35€
+      </span>
+      <i class="material-icons price-icon">remove_red_eye</i>
+    </div>
+
+    <div class="l-btncontainer">
+      <button class="btn btn-alt" (click)="_location.goBack()">
+        <i class="material-icons">save</i>
+        <span class="btn-text">Borrador</span>
+      </button>
+      <button class="btn" [ngClass]="_agencyConfig.userFrom + '-button-light-color'" routerLink="/new-order-breakdown">
+        <i class="material-icons">send</i>
+        <span class="">Continuar</span>
+      </button>
+    </div>
+
+  </footer>
+
+</div>
+
+
+<!-- MODALS -->
+
+<!-- cancel order -->
+<app-m-neworder-exit [(visible)]="_modals.setDialogCancel"></app-m-neworder-exit>
+
+<!-- save order -->
+<app-m-neworder-save [(visible)]="_modals.setDialogSave"></app-m-neworder-save>
+
+<!-- visa -->
+<app-m-visa-edit [(visible)]="_modals.setDialogVisa"></app-m-visa-edit>
+
+<!-- breakdown -->
+<app-m-breakdown [(visible)]="_modals.setDialogBreakdown"></app-m-breakdown>
+

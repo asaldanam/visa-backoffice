@@ -1,0 +1,27 @@
+<div *ngIf="visible" class="l-modal-container">
+  <div class="l-modal-box modal-box">
+    <header class="modal-header">
+      <div class="modal-title">Cancelar pedido</div>
+      <button class="btn-icon btn-alt" (click)="close()">
+        <i class="material-icons">close</i>
+      </button>
+    </header>
+    <div class="modal-body">
+      Si continúa, se perderán todos los datos que haya introducido en este pedido. ¿Está seguro?
+    </div>
+    <footer class="modal-footer">
+      <div class="l-btn-container-right">
+        <button class="btn btn-alt-border" (click)="_location.goBack()">
+          <i class="material-icons">save</i>
+          <span class="btn-text">Guardar borrador</span>
+        </button>
+        <button class="btn btn-error" (click)="_location.goBack()">
+          <i class="material-icons">delete_forever</i>
+          <span class="">Cancelar pedido</span>
+        </button>
+      </div>
+    </footer>
+  </div>
+  <div class="l-areaback" *ngIf="visible" (click)="close()"></div>
+</div>
+

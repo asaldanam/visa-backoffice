@@ -1,0 +1,38 @@
+$travelplan-main: #b91c2f
+$travelplan-main-light: lighten($travelplan-main, 10%)
+
+// Fonts
+.travelplan-font-main-color
+  color: $travelplan-main
+
+.travelplan-font-light-color
+  color: $travelplan-main-light
+  
+.travelplan-link-color
+  color: $travelplan-main
+  transition: color 300ms linear
+  &:hover
+    color: $travelplan-main-light
+
+// Buttons
+.travelplan-button-light-color
+  background-color: $travelplan-main
+  &:hover
+    background-color: $travelplan-main-light
+
+
+.travelplan-bg
+  background-color: $travelplan-main
+.travelplan-bg-light
+  background-color: $travelplan-main-light
+  
+
+// Login
+.tab-bar
+  &.travelplan 
+    &::after
+      background-color: $travelplan-main
+
+.tab-bar-item
+  &.is-active.travelplan
+    color: $travelplan-main

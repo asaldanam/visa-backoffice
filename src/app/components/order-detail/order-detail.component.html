@@ -1,0 +1,276 @@
+<div class="navigation-container">
+  <nav class="l-navigation">
+    <div class="l-navigation-box navigation-box">
+      <app-navigation></app-navigation>
+      <div class="l-btncontainer l-navigation-buttons">
+        <button class="btn btn-alt" (click)="_location.goBack()">
+          <i class="material-icons">arrow_back</i>
+          <span class="btn-text">Volver</span>
+        </button>
+        <!-- Only if has "draft" as status -->
+        <button class="btn" [ngClass]="_agencyConfig.userFrom + '-button-light-color'" routerLink="/new-order">
+          <i class="material-icons">edit</i>
+          <span class="btn-text">Editar pedido</span>
+        </button>
+      </div>
+    </div>
+  </nav>
+</div>
+
+<header class="l-main l-header">
+
+  <div class="header-status">
+    <span class="exp-table-status warning">
+        <i class="material-icons">brightness_1</i>
+    </span>
+    <span class="exp-table-text">Esperando documentación</span>
+  </div>
+
+  <div class="price" (click)="_modals.openModal('breakdown')">
+    <span class="price-text cursor-pointer" [ngClass]="['nav-menu', _agencyConfig.userFrom + '-font-light-color']">
+      127.35€
+    </span>
+    <i class="material-icons price-icon">remove_red_eye</i>
+  </div>
+
+</header>
+
+<main class="l-main">
+  
+  <!-- Info -->
+  <section class="row">
+
+    <div class="col-md-4">
+      <div class="title-1 has-noborder">
+          Datos del pedido 
+      </div>
+      <table class="info-table">
+        <tbody>
+          <tr>
+            <th>Origen</th>
+            <td>España</td>
+          </tr>
+          <tr>
+            <th>Destino</th>
+            <td>Estados Unidos</td>
+          </tr>
+          <tr>
+            <th>Tipo de visado</th>
+            <td>Turismo</td>
+          </tr>
+          <tr>
+            <th>Duración</th>
+            <td>90 Días</td>
+          </tr>
+          <tr>
+            <th>Tipo de trámite</th>
+            <td>Ordinario</td>
+          </tr>
+          <tr>
+            <th>Nº de entradas</th>
+            <td>Múltiples entradas</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="col-md-4">
+      <div class="title-1 has-noborder">
+          Servicios adicionales 
+      </div>
+      <table class="info-table">
+          <tbody>
+            <tr>
+              <th>Seguro de viaje</th>
+              <td>Hasta 30 días</td>
+            </tr>
+            <tr>
+              <th>Entrega</th>
+              <td>Mensajería urgente</td>
+            </tr>
+            <tr>
+              <th>Imp. fotográfica</th>
+              <td>Sí</td>
+            </tr>
+            <tr>
+              <th>Rec. domicilio</th>
+              <td>No</td>
+            </tr>
+          </tbody>
+        </table>
+    </div>
+
+    <div class="col-md-4">
+      <div class="title-1 has-noborder">
+          Entrada y salida 
+      </div>
+      <table class="info-table">
+        <tbody>
+          <tr>
+            <th>Fecha de partida</th>
+            <td>1 Feb 2018</td>
+          </tr>
+          <tr>
+            <th>Fecha de entrada al país</th>
+            <td>2 Feb 2018</td>
+          </tr>
+          <tr>
+            <th>Fecha de regreso</th>
+            <td>15 Feb 2018</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="alert is-warning mt-1">
+        Se han configurado fechas diferentes para alguno de los visados.
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Visas -->
+  <section class="row">
+    <div class="col-12">
+      <div class="title-1">Visados</div>
+      <div class="exp-table mb-1">
+        <header class="exp-table-header visas-columns">
+          <div class="exp-table-cell">
+            <span (click)="_tables.tableSort('name', $event)" class="exp-table-title" [ngClass]="{ 'active': _tables.tableHeader === 'name', 'down': _tables.tableHeader === 'name' && _tables.tableHeaderSort === true, 'up': _tables.tableHeader === 'name' && _tables.tableHeaderSort === false }">
+              Nombre
+            </span>
+          </div>
+          <div class="exp-table-cell">
+            <span (click)="_tables.tableSort('surname', $event)" class="exp-table-title" [ngClass]="{ 'active': _tables.tableHeader === 'surname', 'down': _tables.tableHeader === 'surname' && _tables.tableHeaderSort === true, 'up': _tables.tableHeader === 'surname' && _tables.tableHeaderSort === false }">
+              Apellidos
+            </span>
+          </div>
+          <div class="exp-table-cell">
+            <span (click)="_tables.tableSort('country', $event)" class="exp-table-title" [ngClass]="{ 'active': _tables.tableHeader === 'country', 'down': _tables.tableHeader === 'country' && _tables.tableHeaderSort === true, 'up': _tables.tableHeader === 'country' && _tables.tableHeaderSort === false }">
+              País nacimiento
+            </span>
+          </div>
+          <div class="exp-table-cell">
+            <span (click)="_tables.tableSort('born', $event)" class="exp-table-title" [ngClass]="{ 'active': _tables.tableHeader === 'born', 'down': _tables.tableHeader === 'born' && _tables.tableHeaderSort === true, 'up': _tables.tableHeader === 'born' && _tables.tableHeaderSort === false }">
+              Fecha nacim.
+            </span>
+          </div>
+          <div class="exp-table-cell">
+            <span (click)="_tables.tableSort('passport', $event)" class="exp-table-title" [ngClass]="{ 'active': _tables.tableHeader === 'passport', 'down': _tables.tableHeader === 'passport' && _tables.tableHeaderSort === true, 'up': _tables.tableHeader === 'passport' && _tables.tableHeaderSort === false }">
+              Pasaporte
+            </span>
+          </div>
+          <div class="exp-table-cell">
+            <span (click)="_tables.tableSort('expiration', $event)" class="exp-table-title" [ngClass]="{ 'active': _tables.tableHeader === 'expiration', 'down': _tables.tableHeader === 'expiration' && _tables.tableHeaderSort === true, 'up': _tables.tableHeader === 'expiration' && _tables.tableHeaderSort === false }">
+              F. exp.
+            </span>
+          </div>
+          <div class="exp-table-cell">
+            <span (click)="_tables.tableSort('attachfiles', $event)" class="exp-table-title" [ngClass]="{ 'active': _tables.tableHeader === 'attachfiles', 'down': _tables.tableHeader === 'attachfiles' && _tables.tableHeaderSort === true, 'up': _tables.tableHeader === 'attachfiles' && _tables.tableHeaderSort === false }">
+              Adjuntos
+            </span>
+          </div>
+          <div class="exp-table-cell">
+            <span class="exp-table-title"></span>
+          </div>
+        </header>
+        <div class="exp-table-row visas-columns">
+          <div class="exp-table-cell">
+            <span>John</span>
+          </div>
+          <div class="exp-table-cell">
+            <span class="exp-table-text">Doe</span>
+          </div>
+          <div class="exp-table-cell">
+            <span class="exp-table-text">Estados Unidos de América</span>
+          </div>
+          <div class="exp-table-cell">
+            <span class="exp-table-text">12 Agosto 1980</span>
+          </div>
+          <div class="exp-table-cell">
+            <span>12344565567690</span>
+          </div>
+          <div class="exp-table-cell">
+            <span>12 Agosto 1980</span>
+          </div>
+          <div class="exp-table-cell">
+            <span><i class="material-icons">attachment</i></span>
+          </div>
+
+          <div class="exp-table-cell">
+            <div class="exp-table-actions">
+              <i class="material-icons">more_horiz</i>
+              <div class="exp-table-actions-items">
+                <i class="material-icons" style="font-size: 18px;" (click)="_modals.setDialogVisa = !_modals.setDialogVisa">edit</i>  
+                <i class="material-icons" style="font-size: 18px;" routerLink="/visa-detail">remove_red_eye</i>  
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <footer class="l-btn-container-right">
+        <!-- Only if has "draft" as status -->
+        <button class="btn" [ngClass]="_agencyConfig.userFrom + '-button-light-color'" (click)="_modals.openModal('visa')">
+          <i class="material-icons">add</i>
+          <span class="btn-text">Añadir visado</span>
+        </button>
+      </footer>
+    </div>
+  </section>
+
+  <!-- Requirements -->
+  <section class="row">
+      <div class="col-12">
+        <div class="title-1">Requisitos</div>
+        <ul class="requirements-list">
+            <li class="requirements-item">
+              <header class="requirements-header">
+                <i class="material-icons requirements-icon">insert_drive_file</i>
+                <span class="requirements-title">Permiso de residencia y empadronamiento	</span>
+              </header>
+              <div class="requirements-body">En caso de que el viajero no tenga nacionalidad española deberá aportar: Fotocopia del permiso de residencia o NIE y Certificado de empadronamiento emitido por el municipio donde reside el viajero.</div>
+            </li>
+            <li class="requirements-item">
+              <header class="requirements-header">
+                <i class="material-icons requirements-icon">insert_drive_file</i>
+                <span class="requirements-title">Formulario ETA electrónico</span>
+              </header>
+              <div class="requirements-body">Deberá rellenar el formulario que le haremos llegar una vez finalice su solicitud.</div>
+            </li>
+          </ul>
+      </div>
+  </section>
+
+  <!-- communications -->
+  <app-communications></app-communications>
+
+
+  <footer class="l-footer footer">
+
+      <div class="price" (click)="_modals.openModal('breakdown')">
+        <span class="price-text cursor-pointer" [ngClass]="['nav-menu', _agencyConfig.userFrom + '-font-light-color']">
+          127.35€
+        </span>
+        <i class="material-icons price-icon">remove_red_eye</i>
+      </div>
+  
+      <div class="l-btncontainer">
+        <button class="btn btn-alt" (click)="_location.goBack()">
+          <i class="material-icons">arrow_back</i>
+          <span class="btn-text">Volver</span>
+        </button>
+        <!-- Only if has "draft" as status -->
+        <button class="btn" [ngClass]="_agencyConfig.userFrom + '-button-light-color'" routerLink="/new-order">
+          <i class="material-icons">edit</i>
+          <span class="btn-text">Editar pedido</span>
+        </button>
+      </div>
+  
+    </footer>
+    
+
+</main>
+
+<!-- breakdown -->
+<app-m-breakdown [(visible)]="_modals.setDialogBreakdown"></app-m-breakdown>
+
+<!-- visa -->
+<app-m-visa-edit [(visible)]="_modals.setDialogVisa"></app-m-visa-edit>

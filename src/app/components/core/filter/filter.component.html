@@ -1,0 +1,62 @@
+<div class="l-filter-box">
+
+  <!-- Country filter -->
+  <div class="l-filter filter-item btn-alt" [ngClass]="{'non-filtered':!_filter.filter.country.selected}">
+    <span class="filter-text" (click)="setFilterCountry('edit')">{{ filterValue(_filter.filter.country.name, _filter.filter.country.selected, 'País') }}</span>
+    <span class="filter-icon" (click)="setFilterCountry('delete')">
+      <i class="material-icons" >close</i>
+    </span>
+  </div>
+  <div class="l-dropdown filter-dropdown" [ngClass]="{'show': modalCountry, 'hide': !modalCountry}">
+    <div class="filter-dropdown-box">
+      <div class="input-group form-group">
+        <label class="exp-label"  for="">PAÍS DE DESTINO</label>
+        <select #country class="custom-select" [(ngModel)]="_filter.filter.country.name">
+          <option value="0" selected disabled></option>
+          <option value="Estados Unidos">Estados Unidos</option>
+          <option value="China">China</option>
+          <option value="India">India</option>
+        </select>
+      </div>
+      <div class="l-btn-container-right">
+        <button (click)="setFilterCountry('apply')" [disabled] = "country.value === ''"class="btn btn-small" [ngClass]="_agencyConfig.userFrom + '-button-light-color'">
+            <span>Aplicar</span>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="l-areaback" *ngIf="modalCountry == true" (click)="setFilterCountry('edit')"></div>
+
+  <!-- Date filter -->
+  <div class="l-filter filter-item btn-alt" [ngClass]="{'non-filtered':!_filter.filter.date.selected}">
+    <span class="filter-text" (click)="setFilterDate('edit')">{{ filterValue(_filter.filter.date.name, _filter.filter.date.selected, 'Fecha') }}</span>
+    <span class="filter-icon" (click)="setFilterDate('delete')">
+      <i class="material-icons" >close</i>
+    </span>
+  </div>
+  <div class="l-dropdown filter-dropdown" [ngClass]="{'show': modalDate, 'hide': !modalDate}">
+    <div class="filter-dropdown-box">
+      <div class="input-group form-group">
+        <label class="exp-label"  for="">FECHA</label>
+        <select #date class="custom-select" [(ngModel)]="_filter.filter.date.name">
+          <option value="0" selected disabled></option>
+          <option value="Hoy">Hoy</option>
+          <option value="Ayer">Ayer</option>
+          <option value="Tres días">Tres días</option>
+          <option value="Siete días">Siete días</option>
+          <option value="Treinta días">Treinta días</option>
+          <option value="Un año">Un año</option>
+        </select>
+      </div>
+      <div class="l-btn-container-right">
+        <button (click)="setFilterDate('apply')" [disabled] = "date.value === ''"class="btn btn-small" [ngClass]="_agencyConfig.userFrom + '-button-light-color'">
+            <span>Aplicar</span>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="l-areaback" *ngIf="modalDate == true" (click)="setFilterDate('edit')"></div>
+  
+
+
+</div>

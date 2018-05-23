@@ -1,0 +1,131 @@
+<div class="login-bg-color" [ngClass]="_agencyConfig.userFrom + '-bg'"></div>
+<div class="login-background" style="background-image: url(./assets/img/main-bg.jpg)"></div>
+<main class="login-container">
+  
+  <div class="l-login-box login-box">
+
+    <!-- login header -->
+    <header class="l-login-header login-header">
+      <img class="login-logo" [src]=" './assets/img/logos/' + _agencyConfig.userFrom + '-logo.svg' " alt="">
+    </header>
+
+    <!-- login topbar navigation -->
+    <nav class="l-tab-bar tab-bar" [ngClass]="tabBarStyles()">
+      <div class="tab-bar-item" [ngClass]="isActiveStyle('signin')" (click)="setView('signin', 'form')">
+        Iniciar sesión
+      </div>
+      <div class="tab-bar-item" [ngClass]="isActiveStyle('signup')" (click)="setView('signup', 'form')">
+        Crear cuenta
+      </div>
+    </nav>
+
+    <!-- sign in form -->
+    <form class="sign-in" *ngIf="showView('signin', 'form')" class="loaded">
+      <div class="l-login-container">
+        <div class="row">
+          <div class="form-group col-12 has-icon">
+            <label class="exp-label">Correo Electrónico</label>
+            <input type="email" class="form-control custom-input" required>
+            <i class="material-icons form-icon">email</i>
+          </div>
+          <div class="form-group col-12 has-icon">
+            <label class="exp-label">Contraseña</label>
+            <input type="password" class="form-control custom-input" required>
+            <i class="material-icons form-icon">lock</i>
+          </div>
+        </div>
+        <div class="lost-password">
+          <a [ngClass]="_agencyConfig.userFrom + '-link-color'" (click)="setView('none', 'recovery-form')">He olvidado mi contraseña »</a>
+        </div>
+      </div>
+      <footer class="login-button-container">
+        <button type="button" class="btn login-button" [ngClass]="_agencyConfig.userFrom + '-button-light-color'" routerLink="/orders">
+          Acceder
+        </button>
+      </footer>  
+    </form>
+
+    <!-- sign-up form -->
+    <form action="" *ngIf="showView('signup', 'form')" class="loaded">
+      <div class="l-login-container">
+        <div class="row">
+          <div class="form-group col-12 has-icon">
+            <label class="exp-label">Nombre</label>
+            <input type="text" class="form-control custom-input" required>
+            <i class="material-icons form-icon">person</i>
+          </div>
+          <div class="form-group col-12 has-icon">
+            <label class="exp-label">Agencia / Empresa</label>
+            <input type="text" class="form-control custom-input" required>
+            <i class="material-icons form-icon">work</i>
+          </div>
+          <div class="form-group col-12 has-icon">
+            <label class="exp-label">Correo Electrónico</label>
+            <input type="email" class="form-control custom-input" required>
+            <i class="material-icons form-icon">email</i>
+          </div>
+          <div class="form-group col-12 has-icon">
+            <label class="exp-label">Contraseña</label>
+            <input type="password" class="form-control custom-input" required>
+            <i class="material-icons form-icon">lock</i>
+          </div>
+          <div class="form-group col-12 has-icon">
+            <label class="exp-label">Repetir contraseña</label>
+            <input type="password" class="form-control custom-input" required>
+            <i class="material-icons form-icon">lock</i>
+          </div>
+        </div>
+      </div>
+      <footer class="login-button-container">
+        <button type="button"class="btn login-button" [ngClass]="_agencyConfig.userFrom + '-button-light-color'" (click)="setView('signup', 'msg')">
+          Crear cuenta
+        </button>
+      </footer>  
+    </form>
+
+    <!-- sign up msg -->
+    <div *ngIf="showView('signup', 'msg')" class="loaded">
+      <div class="l-login-container">
+        <div class="l-finish-alert finish-alert is-valid">
+          <img src="./assets/img/finish/valid.svg" alt="" class="finish-img">
+          <div class="finish-title">¡Hecho!</div>
+        </div>
+        <div class="text-center">Su cuenta ha sido creada con éxito. Recibirá un correo electrónico de verificación donde encontrará un enlace para activar su cuenta</div>
+      </div>
+      <button type="button"type="button" class="btn login-button" [ngClass]="_agencyConfig.userFrom + '-button-light-color'" (click)="setView('signin', 'form')">
+        Iniciar Sesión
+      </button>
+    </div>
+
+    <!-- pass recovery form -->
+    <form action="" *ngIf="showView('none', 'recovery-form')">
+     
+      <div class="l-login-container">
+        <div class="form-group col-12 has-icon">
+          <label class="exp-label">Correo Electrónico</label>
+          <input type="email" class="form-control custom-input" required>
+          <i class="material-icons form-icon">email</i>
+        </div>
+      </div>
+      <button type="button" class="btn login-button" [ngClass]="_agencyConfig.userFrom + '-button-light-color'" (click)="setView('none', 'recovery-msg')">
+        Reestablecer contraseña
+      </button>
+    </form>
+
+    <!-- sign up msg -->
+    <div *ngIf="showView('none', 'recovery-msg')" class="loaded">
+      <div class="l-login-container">
+        <div class="l-finish-alert finish-alert is-valid">
+          <img src="./assets/img/finish/valid.svg" alt="" class="finish-img">
+          <div class="finish-title">¡Hecho!</div>
+        </div>
+        <div class="text-center">Hemos enviado un enlace a su dirección de correo donde podrá reestablecer su contraseña.</div>
+      </div>
+      <button type="button" class="btn login-button" [ngClass]="_agencyConfig.userFrom + '-button-light-color'" (click)="setView('signin', 'form')">
+        Iniciar Sesión
+      </button>
+    </div>    
+
+  </div>
+
+</main>

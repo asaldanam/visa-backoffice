@@ -1,0 +1,37 @@
+$expediatur-main-color: #00843E
+$expediatur-main-color-light: #05A167
+$expediatur-sec-color: #AAAE07
+
+// Fonts
+.expediatur-font-main-color
+  color: $expediatur-main-color
+
+.expediatur-font-light-color
+  color: $expediatur-main-color-light
+  
+.expediatur-link-color
+  color: $expediatur-sec-color
+  transition: color 300ms linear
+  &:hover
+    color: $expediatur-main-color
+
+// Buttons
+.expediatur-button-light-color
+  background-color: $expediatur-main-color-light
+  &:hover
+    background-color: $expediatur-sec-color
+
+.expediatur-bg
+  background-color: $expediatur-main-color  
+.expediatur-bg-light
+  background-color: $expediatur-main-color-light
+
+// Login
+.tab-bar
+  &.expediatur
+    &::after
+      background-color: $expediatur-main-color-light
+
+.tab-bar-item
+  &.is-active.expediatur
+    color: $expediatur-main-color-light
